@@ -1,0 +1,43 @@
+name: Bot Automated Maintenance & Graphics
+
+on:
+  schedule:
+    # Runs every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      run_all:
+        description: 'Generate ALL categories at once? (true/false)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  bot-maintenance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Run automation task
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RUN_ALL_CATEGORIES: ${{ github.event.inputs.run_all || 'false' }}
+        run: |
+          chmod +x ./run-all.sh
+          ./run-all.sh
+
+      - name: Commit and Push updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add data/
+          git commit -m "Bot: Automated graphic rotation & timestamp update" || echo "No changes to commit"
+          git push
