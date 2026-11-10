@@ -3,15 +3,15 @@ set -e
 
 echo "=== Starting Automated Bot Maintenance & Graphics Run ==="
 
-# 1. Ensure required dependencies are present on the GitHub Runner
+# 1. Install dependencies if missing
 if ! command -v convert &> /dev/null || ! command -v jq &> /dev/null; then
-    echo "Installing ImageMagick and jq..."
     sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick jq curl
 fi
 
 # 2. Configuration & Directories
 BASE_DIR="./data/bot_graphics"
 LOG_FILE="$BASE_DIR/admin_audit.log"
+STATE_FILE="$BASE_DIR/.rotation_index"
 CATEGORIES=("news" "social_media" "product_mockups" "reports" "alerts")
 TIMESTAMP_FORMAT="%Y-%m-%d %H:%M:%S UTC"
 
@@ -30,7 +30,6 @@ generate_and_stamp() {
     local temp_file="/tmp/raw_$filename"
     local current_ts=$(date -u +"$TIMESTAMP_FORMAT")
 
-    # Skip API call if OPENAI_API_KEY is not set in GitHub Secrets (creates a placeholder/updates existing instead)
     if [[ -n "$OPENAI_API_KEY" ]]; then
         local full_prompt="$prompt, candid photography, natural lighting, 35mm lens, subtle film grain, unedited raw photo look"
         
@@ -49,7 +48,6 @@ generate_and_stamp() {
         if [[ "$image_url" != "null" && -n "$image_url" ]]; then
             curl -s "$image_url" -o "$temp_file"
             
-            # Apply Gaussian sensor grain & forensic drop-shadow timestamp
             convert "$temp_file" \
                 -attenuate 0.15 +noise Gaussian \
                 -gravity SouthEast \
@@ -65,20 +63,38 @@ generate_and_stamp() {
             echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: API failed for $category" >> "$LOG_FILE"
         fi
     else
-        echo "No OPENAI_API_KEY found. Skipping new image generation for $category."
+        echo "No OPENAI_API_KEY found. Skipping image generation for $category."
     fi
 }
 
-# 4. Execute Tasks Across All Categories
-for cat in "${CATEGORIES[@]}"; do
-    echo "Processing category: $cat"
-    generate_and_stamp "$cat" "Editorial real-world scene representing $cat update"
-done
+# 4. Determine Mode: Full Batch (Manual Override) vs. Single Rotation (Scheduled)
+if [[ "$RUN_ALL_CATEGORIES" == "true" ]]; then
+    echo "Manual override active: Generating ALL categories..."
+    for cat in "${CATEGORIES[@]}"; do
+        generate_and_stamp "$cat" "Editorial real-world scene representing $cat update"
+    done
+else
+    # Read last index (default to 0)
+    idx=0
+    [[ -f "$STATE_FILE" ]] && idx=$(cat "$STATE_FILE")
+    
+    # Safety check in case categories list changed
+    total=${#CATEGORIES[@]}
+    (( idx >= total )) && idx=0
 
-# 5. Automated Retention Cleanup (Remove images older than 30 days)
+    current_cat="${CATEGORIES[$idx]}"
+    echo "Scheduled rotation run: Generating category [$current_cat] (Index $idx)"
+    generate_and_stamp "$current_cat" "Editorial real-world scene representing $current_cat update"
+
+    # Save next index for the next 15-minute cycle
+    next_idx=$(( (idx + 1) % total ))
+    echo "$next_idx" > "$STATE_FILE"
+fi
+
+# 5. Cleanup graphics older than 30 days
 find "$BASE_DIR" -type f -name "*.png" -mtime +30 -exec rm -f {} \;
 
-# 6. Update Last-Run Metadata JSON for Your Website Frontend
+# 6. Update Status JSON for Website Frontend
 cat <<EOF > "$BASE_DIR/status.json"
 {
   "last_updated": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
