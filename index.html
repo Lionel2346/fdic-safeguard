@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -446,1095 +447,862 @@
     }
 
     @media (max-width: 880px) {
-      .dash-grid { grid-template-columns: 1fr; }
-    }
-
-    .card-box {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(11, 31, 58, 0.04);
-      margin-bottom: 20px;
-    }
-
-    .card-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      gap: 8px;
-    }
-
-    .card-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .card-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .balance-big {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--navy);
-      margin: 6px 0 4px;
-    }
-
-    .balance-avail {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .acct-meta-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px;
-      font-size: 12.5px;
-    }
-
-    @media (max-width: 520px) {
-      .acct-meta-strip { grid-template-columns: 1fr; }
-    }
-
-    .meta-label {
-      font-size: 10.5px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .meta-val {
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 2px;
-      word-break: break-all;
-    }
-
-    /* Activity List */
-    .tx-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 13px 0;
-      border-bottom: 1px solid #edf2f7;
-      gap: 12px;
-    }
-    .tx-row:last-child { border-bottom: none; }
-
-    .tx-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .tx-badge-in {
-      background: #e0f2fe;
-      color: #0369a1;
-      font-weight: 800;
-      font-size: 11px;
-      padding: 6px 8px;
-      border-radius: 6px;
-      flex-shrink: 0;
-    }
-
-    .tx-title {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--navy);
-    }
-
-    .tx-ref {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      word-break: break-word;
-    }
-
-    .tx-right {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .tx-amt {
-      font-weight: 700;
-      font-size: 14.5px;
-      color: var(--success);
-    }
-
-    .tx-status {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--warning);
-    }
-
-    /* Move Money Grid */
-    .quick-actions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .action-tile {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 14px 8px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .action-tile:hover, .action-tile:active {
-      background: #eef2f6;
-      border-color: var(--navy);
-    }
-
-    .action-icon {
-      font-size: 20px;
-      display: block;
-      margin-bottom: 6px;
-      color: var(--navy);
-    }
-
-    .action-label {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    /* Secure Note Box */
-    .note-textarea {
-      width: 100%;
-      min-height: 84px;
-      padding: 10px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 16px;
-      margin: 12px 0;
-      resize: vertical;
-    }
-
-    .sent-note-item {
-      background: #f1f5f9;
-      border-left: 3px solid var(--navy);
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-    /* Case Status Section */
-    .section-divider {
-      border-top: 2px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 10px;
-    }
-
-    .breadcrumb {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .detail-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 14px 0;
-      font-size: 13.5px;
-    }
-    .detail-table td {
-      padding: 9px 4px;
-      border-bottom: 1px solid #edf2f7;
-    }
-    .detail-table td:first-child {
-      color: var(--text-muted);
-      width: 44%;
-    }
-    .detail-table td:last-child {
-      font-weight: 700;
-      color: var(--navy);
-      text-align: right;
-      word-break: break-word;
-    }
-
-    .disclaimer-mini {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .confidential-banner {
-      background: var(--navy);
-      color: #ffffff;
-      padding: 12px 14px;
-      border-radius: 6px;
-      margin: 14px 0;
-    }
-    .confidential-banner strong {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      display: block;
-      margin-bottom: 3px;
-    }
-    .confidential-banner p {
-      font-size: 13px;
-      color: #e2e8f0;
-    }
-
-    .progress-bar-wrap {
-      background: #e2e8f0;
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      margin: 8px 0 14px;
-    }
-    .progress-bar-fill {
-      background: var(--gold);
-      height: 100%;
-      width: 10%;
-      transition: width 0.3s ease;
-    }
-
-    .specialist-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 12px;
-    }
-
-    .specialist-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-weight: 800;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .log-entry {
-      border-left: 3px solid var(--gold);
-      padding-left: 14px;
-      margin-bottom: 18px;
-    }
-    .log-time {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-    .log-title {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 2px 0 4px;
-    }
-    .log-body {
-      font-size: 13px;
-      color: #334155;
-      line-height: 1.55;
-    }
-
-    /* SHARED FOOTER */
-    .site-footer {
-      background-color: var(--navy-dark);
-      color: #cbd5e1;
-      padding: 32px 20px 28px;
-      margin-top: auto;
-      border-top: 3px solid var(--gold);
-    }
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-    .footer-cols {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-bottom: 24px;
-    }
-    .footer-col h4 {
-      color: #ffffff;
-      font-size: 13px;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-    .footer-col p {
-      font-size: 12.5px;
-      margin-bottom: 8px;
-      color: #94a3b8;
-    }
-    .footer-col a {
-      display: block;
-      color: #cbd5e1;
-      text-decoration: none;
-      font-size: 12.5px;
-      margin-bottom: 6px;
-    }
-    .footer-col a:hover {
-      color: var(--gold);
-      text-decoration: underline;
-    }
-    .program-badge {
-      display: inline-block;
-      background: rgba(201, 162, 39, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-size: 11.5px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-    .ehl-row {
-      font-size: 12px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .legal-copy {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 16px;
-      font-size: 11.5px;
-      color: #94a3b8;
-      line-height: 1.55;
-    }
-    .legal-copy p {
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ========== LOGIN SCREEN ========== -->
-  <div id="login-screen">
-    <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://www.w3.org/2000/svg" aria-label="FDIC Safeguard">
-        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-      </svg>
-    </div>
-
-    <main class="login-main">
-      <div class="login-card">
-        <h1>Sign On</h1>
-        <p class="login-sub">Verified fraud victims — secure case access only</p>
-
-        <div class="notice-box">
-          <div class="notice-title">FRAUD VICTIMS ONLY</div>
-          <div class="notice-body">
-            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active fraud recovery case who received sign-on credentials from an assigned Recovery Specialist.
-          </div>
-        </div>
-
-        <div id="error-msg"></div>
-
-        <form id="login-form">
-          <div class="field-group">
-            <label for="userid-input">User ID</label>
-            <input type="text" id="userid-input" class="rect-input" autocomplete="username" />
-          </div>
-
-          <div class="field-group">
-            <label for="pass-input">Password</label>
-            <div class="pass-wrap">
-              <input type="password" id="pass-input" class="rect-input" autocomplete="current-password" />
-              <button type="button" class="eye-btn" id="toggle-eye">Show</button>
-            </div>
-          </div>
-
-          <div class="options-row">
-            <label class="remember-label">
-              <input type="checkbox" /> Remember me
-            </label>
-            <a href="#" class="gold-text-link">Forgot password?</a>
-          </div>
-
-          <button type="submit" class="gold-pill-btn">Sign On</button>
-        </form>
-
-        <div class="card-bottom-note">
-          Fraud Victim Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
-          <br />
-          <button type="button" class="staff-link" onclick="showScreen('admin-screen')">Staff sign-on</button>
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>CUSTOMER SERVICE</h4>
-            <p>Contact your Recovery Specialist through this secure portal.</p>
-            <a href="#">Report Suspicious Activity</a>
-            <a href="#">Lost or Stolen Card</a>
-          </div>
-          <div class="footer-col">
-            <h4>ONLINE BANKING HELP</h4>
-            <a href="#">Enrollment & User ID Recovery</a>
-            <a href="#">Mobile Banking Security Tips</a>
-            <a href="#">Supported Browsers</a>
-            <a href="#">System Requirements</a>
-          </div>
-          <div class="footer-col">
-            <h4>REGULATORY</h4>
-            <a href="#">FDIC.gov</a>
-            <a href="#">Consumer Complaint Process</a>
-            <a href="#">Equal Credit Opportunity Act Notice</a>
-          </div>
-        </div>
-        <div class="program-badge">PROGRAM FDIC — IDENTITY FRAUD VICTIMS</div>
-        <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
-        <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
-          <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
-          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- ========== ADMIN SCREEN ========== -->
-  <div id="admin-screen">
-    <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://www.w3.org/2000/svg" aria-label="FDIC Safeguard">
-        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-      </svg>
-      <button type="button" class="signout-pill-btn" onclick="showScreen('login-screen')">Customer Sign On</button>
-    </div>
-
-    <main class="admin-main">
-      <div class="admin-panel-card">
-        <h2>Staff Sign-On & Case Control Panel</h2>
-        <p class="admin-desc">Changes are saved automatically to your iPhone's local storage and persist across reloads.</p>
-
-        <div class="admin-grid">
-          <div class="admin-group">
-            <label for="adm-userid">Actor User ID</label>
-            <input type="text" id="adm-userid" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-pass">Actor Password</label>
-            <input type="text" id="adm-pass" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-fullname">Claimant Full Name</label>
-            <input type="text" id="adm-fullname" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-firstname">Greeting First Name</label>
-            <input type="text" id="adm-firstname" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-ledger">Ledger Balance (Provisional)</label>
-            <input type="text" id="adm-ledger" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-avail">Available to Withdraw</label>
-            <input type="text" id="adm-avail" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-caseref">Case Reference</label>
-            <input type="text" id="adm-caseref" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-specialist">Assigned Specialist</label>
-            <input type="text" id="adm-specialist" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-email">Specialist Email</label>
-            <input type="text" id="adm-email" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-phone">Specialist Phone</label>
-            <input type="text" id="adm-phone" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-disposition">Case Disposition Badge</label>
-            <input type="text" id="adm-disposition" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-completion">Overall Completion %</label>
-            <input type="number" id="adm-completion" class="admin-input" min="0" max="100" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-cardstatus">Debit Card Status</label>
-            <input type="text" id="adm-cardstatus" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-packstatus">Document Package Status</label>
-            <input type="text" id="adm-packstatus" class="admin-input" />
-          </div>
-        </div>
-
-        <div class="admin-btn-row">
-          <button type="button" class="gold-pill-btn" onclick="applyAdminSettings()">Save & Apply Changes</button>
-          <button type="button" class="purple-pill-btn" onclick="resetAdminDefaults()">Reset to Default</button>
-        </div>
-        <div id="admin-feedback"></div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS</p>
-        <div class="util-links" style="margin-bottom:16px;">
-          <a href="#">Contact Us</a>
-          <a href="#">Privacy & Security</a>
-          <a href="#">Accessibility</a>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- ========== DASHBOARD SCREEN ========== -->
-  <div id="dashboard-screen">
-    <div class="util-bar">
-      <span>Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS</span>
-      <div class="util-links">
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy & Security</a>
-        <a href="#">Accessibility</a>
-      </div>
-    </div>
-
-    <header class="dash-header">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://www.w3.org/2000/svg" aria-label="FDIC Safeguard">
-        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-      </svg>
-      <div class="user-controls">
-        <span class="user-name-badge" id="dash-fullname">Susan Ann Vigneault</span>
-        <button type="button" class="signout-pill-btn" onclick="signOutUser()">Sign out</button>
-      </div>
-    </header>
-
-    <nav class="dash-nav">
-      <button type="button" class="nav-tab active" onclick="scrollToSection('top')">Accounts</button>
-      <button type="button" class="nav-tab" onclick="checkServiceAvailability('Transfer')">Transfer</button>
-      <button type="button" class="nav-tab" onclick="checkServiceAvailability('Wire')">Wire</button>
-      <button type="button" class="nav-tab" onclick="checkServiceAvailability('Pay bills')">Pay bills</button>
-      <button type="button" class="nav-tab" onclick="scrollToSection('case-status-section')">Case Status</button>
-      <button type="button" class="nav-tab" onclick="scrollToSection('activity-log-section')">Chain-of-Custody</button>
-    </nav>
-
-    <div class="dash-container" id="top">
-      <div class="greeting-banner">
-        <div>
-          <h1>Good afternoon, <span id="dash-firstname">Susan</span></h1>
-          <p class="last-signon">Last sign on 11/09/2026 at 09:16 PM ET</p>
-        </div>
-        <span class="hold-pill">INVESTIGATION HOLD</span>
-      </div>
-
-      <div class="dash-grid">
-        <!-- Left column -->
-        <div>
-          <div class="card-box">
-            <div class="card-header-row">
-              <div>
-                <div class="card-title">Primary safe custody account</div>
-                <div class="card-subtitle">FDIC Safe Custody — Fraud Recovery</div>
-              </div>
-              <span class="hold-pill" style="background:#ecfdf3;color:#067647;border-color:#abefc6;">ACTIVE</span>
-            </div>
-            <div class="balance-big" id="dash-ledger-top">$0.00</div>
-            <div class="balance-avail">Available to withdraw <span id="dash-avail-top">$0.00</span></div>
-            <div class="acct-meta-strip">
-              <div>
-                <div class="meta-label">Account</div>
-                <div class="meta-val">•••• •••• •••• 4383</div>
-              </div>
-              <div>
-                <div class="meta-label">Routing</div>
-                <div class="meta-val">061000104</div>
-              </div>
-              <div>
-                <div class="meta-label">Case</div>
-                <div class="meta-val" id="dash-caseref-top">FTA:25CEF1429/COC:25CEF518</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-box">
-            <div class="card-title">Activity</div>
-            <div class="card-subtitle">Pending credits and debits on your custody account</div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-09 · Ref TRACE-FTA25CEF1429-269657</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$80,000.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-07 · Ref TRACE-FTA25CEF1429-0F750A</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$4,800.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-B88723</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$20,200.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-FF57AE</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$5,000.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column -->
-        <div>
-          <div class="card-box">
-            <div class="card-title">Move money</div>
-            <div class="card-subtitle">Select a service to check availability</div>
-            <div class="quick-actions-grid">
-              <div class="action-tile" onclick="checkServiceAvailability('Transfer')">
-                <span class="action-icon">⇅</span>
-                <span class="action-label">Transfer</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Wire')">
-                <span class="action-icon">⚡</span>
-                <span class="action-label">Wire</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Pay bills')">
-                <span class="action-icon">☐</span>
-                <span class="action-label">Pay bills</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Deposit')">
-                <span class="action-icon">↓</span>
-                <span class="action-label">Deposit</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Withdraw')">
-                <span class="action-icon">↑</span>
-                <span class="action-label">Withdraw</span>
-              </div>
-              <div class="action-tile" onclick="scrollToSection('case-status-section')">
-                <span class="action-icon">🛡</span>
-                <span class="action-label">Case status</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-box">
-            <div class="card-title">Notes to your investigator</div>
-            <div class="card-subtitle">
-              Secure messages for case <span id="dash-caseref-note">FTA:25CEF1429/COC:25CEF518</span>.
-              Assigned specialist: <span id="dash-spec-note">SA Daniel Wilson</span>
-            </div>
-            <div id="notes-history">No messages yet. Use the form below to send a secure note to your assigned investigator.</div>
-            <textarea id="secure-note-input" class="note-textarea" placeholder="Type your secure note…"></textarea>
-            <button type="button" class="gold-pill-btn" onclick="sendSecureNote()">Send Secure Note</button>
-          </div>
-
-          <div class="card-box">
-            <div class="card-title">Case Status</div>
-            <div class="card-subtitle">Federal case file, detailed Safe Custody account, activity log, specialist, and shipments.</div>
-            <button type="button" class="purple-pill-btn" style="width:100%;" onclick="scrollToSection('case-status-section')">Open case status</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case Status Detail -->
-      <div class="section-divider" id="case-status-section">
-        <div class="breadcrumb">Accounts › Case Status</div>
-        <h2 class="card-title" style="font-size:20px;margin-bottom:4px;">Case Status</h2>
-        <p class="last-signon" style="margin-bottom:16px;">Last sign on: 11/09/2026 at 09:16 PM ET | Federal case file, custody account detail, specialist contact, and secure shipments.</p>
-
-        <div class="card-box">
-          <div class="card-title">FDIC Safe Custody Account</div>
-          <div class="card-subtitle">Primary safe custody account</div>
-          <table class="detail-table">
-            <tr><td>Ledger balance (provisional)</td><td id="dash-ledger-detail">$0.00</td></tr>
-            <tr><td>Available to withdraw</td><td id="dash-avail-detail">$0.00</td></tr>
-            <tr><td>Account number</td><td>•••• •••• •••• 4383</td></tr>
-            <tr><td>Account status</td><td>ACTIVE</td></tr>
-            <tr><td>Routing / transit</td><td>061000104</td></tr>
-            <tr><td>Product type</td><td>FDIC Safe Custody — Fraud Recovery</td></tr>
-            <tr><td>Insurance category</td><td>Single account · victim program pass-through</td></tr>
-            <tr><td>Linked federal case</td><td id="dash-caseref-detail">FTA:25CEF1429/COC:25CEF518</td></tr>
-            <tr><td>Wire / ACH outbound</td><td>Blocked — compliance & federal clearance</td></tr>
-            <tr><td>Last updated</td><td>11/05/2026 at 06:15 PM ET</td></tr>
-          </table>
-          <div class="disclaimer-mini">
-            Temporary segregated deposit for provisionally credited recoveries only. Not spendable until identity verification and federal review complete. FDIC insurance up to $250,000 per depositor, per category. Do not transfer the same loss elsewhere without written clearance from your Recovery Specialist.
-          </div>
-        </div>
-
-        <div class="card-box">
-          <div class="card-title">Shipments & documents</div>
-          <div class="card-subtitle">Replacement card and secure document package</div>
-          <table class="detail-table">
-            <tr><td>Debit card tracking</td><td>9400299998640339865085</td></tr>
-            <tr><td>Card status</td><td id="dash-cardstatus">NOT SHIPPED</td></tr>
-            <tr><td>Document pack ID</td><td>916669484376</td></tr>
-            <tr><td>Package status</td><td id="dash-packstatus">NOT SHIPPED</td></tr>
-          </table>
-        </div>
-
-        <div class="card-box">
-          <div class="card-title">Case status</div>
-          <div class="card-subtitle">Federal fraud recovery case file</div>
-          <table class="detail-table">
-            <tr><td>Case reference</td><td id="dash-caseref-file">FTA:25CEF1429/COC:25CEF518</td></tr>
-            <tr><td>Disposition</td><td id="dash-disposition">SUBMITTED</td></tr>
-            <tr><td>Overall completion</td><td><span id="dash-completion-text">10</span>%</td></tr>
-          </table>
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="dash-completion-bar" style="width:10%;"></div>
-          </div>
-          <div class="confidential-banner">
-            <strong>CONFIDENTIAL — FEDERAL INVESTIGATION MATTER</strong>
-            <p>Fraud recovery claim opened. An FDIC recovery specialist will contact you shortly.</p>
-          </div>
-          <p style="font-size:13px;color:var(--text-muted);margin:10px 0;">Field notes from your assigned Recovery Specialist and federal partners.</p>
-          <p style="font-size:13px;color:#334155;">No investigator notations have been posted to your case file yet.</p>
-
-          <div class="specialist-card">
-            <div class="specialist-avatar" id="dash-spec-initial">S</div>
-            <div>
-              <div style="font-size:11px;font-weight:800;color:var(--text-muted);letter-spacing:0.4px;">ASSIGNED SPECIALIST</div>
-              <div style="font-weight:700;color:var(--navy);font-size:15px;" id="dash-spec-name">SA Daniel Wilson</div>
-              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-email">agntwilson@doj.gov</div>
-              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-phone">4783161873</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Activity Log -->
-      <div class="section-divider" id="activity-log-section">
-        <div class="card-box">
-          <div class="card-title">Case activity log</div>
-          <div class="card-subtitle">Official chain-of-custody and federal review timestamps</div>
-
-          <div class="log-entry">
-            <div class="log-time">2026-11-05 23:29:33 ET</div>
-            <div class="log-title">Financial Audit-CI UNIT/Process and Proceeding</div>
-            <div class="log-body">
-              bank records are obtained, civil tax examination, an IRS Criminal Investigation (CI) matter, or both matters are subject to court proceeding under any signs of potential money laundering civil audit, IRS is requiring provide statements, deposit records, loan documents, invoices, contracts, and other records explaining particular deposits or transactions. As the Internal revenue service their is also referencing from federal court judge of the US district courts to seek records from third parties, including banks, through legal process such as a summons, subject to applicable notice and procedural rules. A request for documents does not by itself means IRS has concluded money laundering occurred but there potential beliefs of these accusations. information from law enforcement, what initially lead to a referral for IRS-CI review. IRS-CI this investigations could have as well originate from other agencies, and agents may review financial data and subpoena bank records. A criminal investigation is a separate process from an ordinary audit, though civil and criminal matters can sometimes proceed in parallel. To substantiate the legitimate source and tax treatment of questioned funds, records need to show where each deposit came from, who owned the funds, why they were transferred, and how the amounts were reported. Depending on the transactions, useful documents may include complete bank statements, deposit and wire details, invoices and sales records, loan or gift agreements, proof of transfers between your own accounts, business books, and tax returns. Keep original records and avoid altering or selectively deleting anything.
-            </div>
-          </div>
-
-          <div class="log-entry">
-            <div class="log-time">2026-11-05 23:22:47 ET</div>
-            <div class="log-title">Ongoing federal investigation</div>
-            <div class="log-body">
-              This matter is under active review in coordination with federal financial crime authorities. Scope includes forensic analysis of wire sequences, beneficiary account terminations, and institution-held records. No public comment will be made on investigative techniques or interim findings until permitted by applicable protocol.
-            </div>
-          </div>
-
-          <div class="log-entry">
-            <div class="log-time">2026-11-05 23:18:41 ET</div>
-            <div class="log-title">Intake received/CI — file opened</div>
-            <div class="log-body">
-              Your formal Criminal investigation docket file has been opened with the United States district courts Unit. Initial intake documentation has been logged, and your matter has been assigned a unique case reference for USDC-coordinated review. No disbursement action will occur until identity verification, court appearance's as well as any IRS stipulations are complete. You will be contacted only through official channels associated with the United States District Courts
-            </div>
-          </div>
-
-          <div class="log-entry">
-            <div class="log-time">2026-11-05 23:18:41 ET</div>
-            <div class="log-title">Special agent assigned</div>
-            <div class="log-body">
-              Primary case ownership has been assigned to a certified Specialist within the agency, Department of Justice Association. Your specialist serves as the sole authorized point of coordination for document submission, status inquiries, disbursement instructions and any warrants related to this matter including any stipulations required by the court of law and IRS criminal investigation unit
-            </div>
-          </div>
-
-          <div class="log-entry">
-            <div class="log-time">2026-11-05 23:11:34 ET</div>
-            <div class="log-title">Claim submitted</div>
-            <div class="log-body">Your fraud recovery case has been registered.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>CUSTOMER SERVICE</h4>
-            <p>Contact your Recovery Specialist through this secure portal.</p>
-            <a href="#">Report Suspicious Activity</a>
-            <a href="#">Lost or Stolen Card</a>
-          </div>
-          <div class="footer-col">
-            <h4>ONLINE BANKING HELP</h4>
-            <a href="#">Enrollment & User ID Recovery</a>
-            <a href="#">Mobile Banking Security Tips</a>
-            <a href="#">Supported Browsers</a>
-            <a href="#">System Requirements</a>
-          </div>
-          <div class="footer-col">
-            <h4>REGULATORY</h4>
-            <a href="#">FDIC.gov</a>
-            <a href="#">Consumer Complaint Process</a>
-            <a href="#">Equal Credit Opportunity Act Notice</a>
-          </div>
-        </div>
-        <div class="program-badge">PROGRAM FDIC — IDENTITY FRAUD VICTIMS</div>
-        <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
-        <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
-          <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
-          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    const STORAGE_KEY = "fdic_safeguard_case_state_v1";
-    const defaultState = {
-      userId: "svigneault",
-      password: "Password123!",
-      fullName: "Susan Ann Vigneault",
-      firstName: "Susan",
-      ledgerBalance: "$0.00",
-      availableBalance: "$0.00",
-      caseRef: "FTA:25CEF1429/COC:25CEF518",
-      specialist: "SA Daniel Wilson",
-      email: "agntwilson@doj.gov",
-      phone: "4783161873",
-      disposition: "SUBMITTED",
-      completion: 10,
-      cardStatus: "NOT SHIPPED",
-      packStatus: "NOT SHIPPED",
-      notes: []
-    };
-
-    function loadState() {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          return { ...defaultState, ...JSON.parse(saved) };
-        }
-      } catch (e) {
-        console.warn("localStorage unavailable in this preview context.");
-      }
-      return { ...defaultState };
-    }
-
-    function saveState() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-      } catch (e) {
-        console.warn("Could not save to localStorage.");
-      }
-    }
-
-    let appState = loadState();
-
-    function renderNotes() {
-      const history = document.getElementById("notes-history");
-      if (!appState.notes || appState.notes.length === 0) {
-        history.innerHTML = "No messages yet. Use the form below to send a secure note to your assigned investigator.";
-        return;
-      }
-      history.innerHTML = "";
-      appState.notes.forEach(note => {
-        const item = document.createElement("div");
-        item.className = "sent-note-item";
-        const safeText = note.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        item.innerHTML = "Sent (" + note.time + "): " + safeText;
-        history.appendChild(item);
-      });
-    }
-
-    function syncUI() {
-      document.getElementById("adm-userid").value = appState.userId;
-      document.getElementById("adm-pass").value = appState.password;
-      document.getElementById("adm-fullname").value = appState.fullName;
-      document.getElementById("adm-firstname").value = appState.firstName;
-      document.getElementById("adm-ledger").value = appState.ledgerBalance;
-      document.getElementById("adm-avail").value = appState.availableBalance;
-      document.getElementById("adm-caseref").value = appState.caseRef;
-      document.getElementById("adm-specialist").value = appState.specialist;
-      document.getElementById("adm-email").value = appState.email;
-      document.getElementById("adm-phone").value = appState.phone;
-      document.getElementById("adm-disposition").value = appState.disposition;
-      document.getElementById("adm-completion").value = appState.completion;
-      document.getElementById("adm-cardstatus").value = appState.cardStatus;
-      document.getElementById("adm-packstatus").value = appState.packStatus;
-
-      document.getElementById("dash-fullname").textContent = appState.fullName;
-      document.getElementById("dash-firstname").textContent = appState.firstName;
-      document.getElementById("dash-ledger-top").textContent = appState.ledgerBalance;
-      document.getElementById("dash-avail-top").textContent = appState.availableBalance;
-      document.getElementById("dash-ledger-detail").textContent = appState.ledgerBalance;
-      document.getElementById("dash-avail-detail").textContent = appState.availableBalance;
-      document.getElementById("dash-caseref-top").textContent = appState.caseRef;
-      document.getElementById("dash-caseref-note").textContent = appState.caseRef;
-      document.getElementById("dash-caseref-detail").textContent = appState.caseRef;
-      document.getElementById("dash-caseref-file").textContent = appState.caseRef;
-      document.getElementById("dash-spec-note").textContent = appState.specialist;
-      document.getElementById("dash-spec-name").textContent = appState.specialist;
-      document.getElementById("dash-spec-initial").textContent = appState.specialist.charAt(0).toUpperCase();
-      document.getElementById("dash-spec-email").textContent = appState.email;
-      document.getElementById("dash-spec-phone").textContent = appState.phone;
-      document.getElementById("dash-disposition").textContent = appState.disposition;
-      document.getElementById("dash-completion-text").textContent = appState.completion;
-      document.getElementById("dash-completion-bar").style.width = Math.min(100, Math.max(0, appState.completion)) + "%";
-      document.getElementById("dash-cardstatus").textContent = appState.cardStatus;
-      document.getElementById("dash-packstatus").textContent = appState.packStatus;
-      renderNotes();
-    }
-
-    function showScreen(screenId) {
-      document.getElementById("login-screen").style.display = "none";
-      document.getElementById("admin-screen").style.display = "none";
-      document.getElementById("dashboard-screen").style.display = "none";
-      document.getElementById(screenId).style.display = "flex";
-      window.scrollTo(0, 0);
-    }
-
-    function signOutUser() {
-      document.getElementById("pass-input").value = "";
-      showScreen("login-screen");
-    }
-
-    document.getElementById("toggle-eye").addEventListener("click", function () {
-      const passInput = document.getElementById("pass-input");
-      if (passInput.type === "password") {
-        passInput.type = "text";
-        this.textContent = "Hide";
-      } else {
-        passInput.type = "password";
-        this.textContent = "Show";
-      }
-    });
-
-    document.getElementById("login-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const enteredUser = document.getElementById("userid-input").value.trim();
-      const enteredPass = document.getElementById("pass-input").value;
-      const errBox = document.getElementById("error-msg");
-      if (enteredUser === appState.userId && enteredPass === appState.password) {
-        errBox.style.display = "none";
-        showScreen("dashboard-screen");
-      } else {
-        errBox.textContent = "Invalid User ID or Password. Default credentials: svigneault / Password123!";
-        errBox.style.display = "block";
-      }
-    });
-
-    function applyAdminSettings() {
-      appState.userId = document.getElementById("adm-userid").value.trim() || defaultState.userId;
-      appState.password = document.getElementById("adm-pass").value || defaultState.password;
-      appState.fullName = document.getElementById("adm-fullname").value;
-      appState.firstName = document.getElementById("adm-firstname").value;
-      appState.ledgerBalance = document.getElementById("adm-ledger").value;
-      appState.availableBalance = document.getElementById("adm-avail").value;
-      appState.caseRef = document.getElementById("adm-caseref").value;
-      appState.specialist = document.getElementById("adm-specialist").value;
-      appState.email = document.getElementById("adm-email").value;
-      appState.phone = document.getElementById("adm-phone").value;
-      appState.disposition = document.getElementById("adm-disposition").value;
-      appState.completion = parseInt(document.getElementById("adm-completion").value, 10) || 0;
-      appState.cardStatus = document.getElementById("adm-cardstatus").value;
-      appState.packStatus = document.getElementById("adm-packstatus").value;
-      saveState();
-      syncUI();
-      document.getElementById("admin-feedback").textContent = "Saved to iPhone localStorage and applied.";
-    }
-
-    function resetAdminDefaults() {
-      appState = { ...defaultState, notes: [] };
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-      } catch (e) {}
-      syncUI();
-      document.getElementById("admin-feedback").textContent = "Reset to default parameters and cleared saved storage.";
-    }
-
-    function checkServiceAvailability(serviceName) {
-      alert(serviceName + " is currently unavailable. Outbound and inbound account movement is blocked pending compliance and federal clearance under case " + appState.caseRef + ".");
-    }
-
-    function sendSecureNote() {
-      const input = document.getElementById("secure-note-input");
-      const text = input.value.trim();
-      if (!text) return;
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-      if (!Array.isArray(appState.notes)) {
-        appState.notes = [];
-      }
-      appState.notes.push({ text: text, time: timeStr });
-      saveState();
-      renderNotes();
-      input.value = "";
-    }
-
-    function scrollToSection(id) {
-      if (id === "top") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-
-    syncUI();
+Use code with caution.
+.dash-grid { grid-template-columns: 1fr; }
+}
+.card-box {
+background: #ffffff;
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 2px 8px rgba(11, 31, 58, 0.04);
+margin-bottom: 20px;
+}
+.card-header-row {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 12px;
+gap: 8px;
+}
+.card-title {
+font-size: 17px;
+font-weight: 700;
+color: var(--navy);
+}
+.card-subtitle {
+font-size: 13px;
+color: var(--text-muted);
+margin-bottom: 16px;
+}
+.balance-big {
+font-size: 32px;
+font-weight: 800;
+color: var(--navy);
+margin: 6px 0 4px;
+}
+.balance-avail {
+font-size: 13.5px;
+color: var(--text-muted);
+margin-bottom: 16px;
+}
+.acct-meta-strip {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+background: #f8fafc;
+border: 1px solid #e2e8f0;
+border-radius: 6px;
+padding: 12px;
+font-size: 12.5px;
+}
+@media (max-width: 520px) {
+.acct-meta-strip { grid-template-columns: 1fr; }
+}
+.meta-label {
+font-size: 10.5px;
+text-transform: uppercase;
+color: var(--text-muted);
+font-weight: 700;
+}
+.meta-val {
+font-weight: 700;
+color: var(--navy);
+margin-top: 2px;
+word-break: break-all;
+}
+/* Activity List */
+.tx-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 13px 0;
+border-bottom: 1px solid #edf2f7;
+gap: 12px;
+}
+.tx-row:last-child { border-bottom: none; }
+.tx-left {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.tx-badge-in {
+background: #e0f2fe;
+color: #0369a1;
+font-weight: 800;
+font-size: 11px;
+padding: 6px 8px;
+border-radius: 6px;
+flex-shrink: 0;
+}
+.tx-title {
+font-weight: 700;
+font-size: 14px;
+color: var(--navy);
+}
+.tx-ref {
+font-size: 11.5px;
+color: var(--text-muted);
+word-break: break-word;
+}
+.tx-right {
+text-align: right;
+flex-shrink: 0;
+}
+.tx-amt {
+font-weight: 700;
+font-size: 14.5px;
+color: var(--success);
+}
+.tx-status {
+font-size: 11.5px;
+font-weight: 700;
+color: var(--warning);
+}
+/* Move Money Grid */
+.quick-actions-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+}
+.action-tile {
+background: #f8fafc;
+border: 1px solid #cbd5e1;
+border-radius: 6px;
+padding: 14px 8px;
+text-align: center;
+cursor: pointer;
+transition: all 0.15s ease;
+}
+.action-tile:hover, .action-tile:active {
+background: #eef2f6;
+border-color: var(--navy);
+}
+.action-icon {
+font-size: 20px;
+display: block;
+margin-bottom: 6px;
+color: var(--navy);
+}
+.action-label {
+font-size: 12.5px;
+font-weight: 700;
+color: var(--navy);
+}
+/* Secure Note Box */
+.note-textarea {
+width: 100%;
+min-height: 84px;
+padding: 10px;
+border: 1px solid #cbd5e1;
+border-radius: 6px;
+font-size: 16px;
+margin: 12px 0;
+resize: vertical;
+}
+.sent-note-item {
+background: #f1f5f9;
+border-left: 3px solid var(--navy);
+padding: 8px 12px;
+border-radius: 4px;
+font-size: 13px;
+margin-bottom: 8px;
+}
+/* Case Status Section */
+.section-divider {
+border-top: 2px solid var(--border-color);
+padding-top: 24px;
+margin-top: 10px;
+}
+.breadcrumb {
+font-size: 12.5px;
+color: var(--text-muted);
+margin-bottom: 6px;
+}
+.detail-table {
+width: 100%;
+border-collapse: collapse;
+margin: 14px 0;
+font-size: 13.5px;
+}
+.detail-table td {
+padding: 9px 4px;
+border-bottom: 1px solid #edf2f7;
+}
+.detail-table td:first-child {
+color: var(--text-muted);
+width: 44%;
+}
+.detail-table td:last-child {
+font-weight: 700;
+color: var(--navy);
+text-align: right;
+word-break: break-word;
+}
+.disclaimer-mini {
+background: #f8fafc;
+border: 1px solid #e2e8f0;
+padding: 12px;
+border-radius: 6px;
+font-size: 12px;
+color: var(--text-muted);
+line-height: 1.5;
+}
+.confidential-banner {
+background: var(--navy);
+color: #ffffff;
+padding: 12px 14px;
+border-radius: 6px;
+margin: 14px 0;
+}
+.confidential-banner strong {
+color: var(--gold);
+font-size: 12px;
+letter-spacing: 0.5px;
+display: block;
+margin-bottom: 3px;
+}
+.confidential-banner p {
+font-size: 13px;
+color: #e2e8f0;
+}
+.progress-bar-wrap {
+background: #e2e8f0;
+height: 10px;
+border-radius: 999px;
+overflow: hidden;
+margin: 8px 0 14px;
+}
+.progress-bar-fill {
+background: var(--gold);
+height: 100%;
+width: 10%;
+transition: width 0.3s ease;
+}
+.specialist-card {
+display: flex;
+align-items: center;
+gap: 14px;
+background: #f8fafc;
+border: 1px solid #cbd5e1;
+padding: 14px;
+border-radius: 8px;
+margin-top: 12px;
+}
+.specialist-avatar {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+background: var(--navy);
+color: var(--gold);
+font-weight: 800;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+.log-entry {
+border-left: 3px solid var(--gold);
+padding-left: 14px;
+margin-bottom: 18px;
+}
+.log-time {
+font-size: 12px;
+font-weight: 700;
+color: var(--text-muted);
+}
+.log-title {
+font-size: 14.5px;
+font-weight: 700;
+color: var(--navy);
+margin: 2px 0 4px;
+}
+.log-body {
+font-size: 13px;
+color: #334155;
+line-height: 1.55;
+}
+/* SHARED FOOTER */
+.site-footer {
+background-color: var(--navy-dark);
+color: #cbd5e1;
+padding: 32px 20px 28px;
+margin-top: auto;
+border-top: 3px solid var(--gold);
+}
+.footer-inner {
+max-width: 1180px;
+margin: 0 auto;
+}
+.footer-cols {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 22px;
+margin-bottom: 24px;
+}
+.footer-col h4 {
+color: #ffffff;
+font-size: 13px;
+letter-spacing: 0.5px;
+margin-bottom: 10px;
+}
+.footer-col p {
+font-size: 12.5px;
+margin-bottom: 8px;
+color: #94a3b8;
+}
+.footer-col a {
+display: block;
+color: #cbd5e1;
+text-decoration: none;
+font-size: 12.5px;
+margin-bottom: 6px;
+}
+.footer-col a:hover {
+color: var(--gold);
+text-decoration: underline;
+}
+.program-badge {
+display: inline-block;
+background: rgba(201, 162, 39, 0.15);
+border: 1px solid var(--gold);
+color: var(--gold);
+font-size: 11.5px;
+font-weight: 800;
+padding: 5px 12px;
+border-radius: 4px;
+margin-bottom: 10px;
+}
+.ehl-row {
+font-size: 12px;
+font-weight: 700;
+color: #ffffff;
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.legal-copy {
+border-top: 1px solid rgba(255,255,255,0.12);
+padding-top: 16px;
+font-size: 11.5px;
+color: #94a3b8;
+line-height: 1.55;
+}
+.legal-copy p {
+margin-bottom: 10px;
+}
+
+
+Sign On
+Verified fraud victims — secure case access only
+FRAUD VICTIMS ONLY
+
+This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active fraud recovery case who received sign-on credentials from an assigned Recovery Specialist.
+
+User ID
+Password
+Show
+
+Remember me
+Forgot password?
+Sign On
+Fraud Victim Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
+
+
+Staff sign-on
+
+
+CUSTOMER SERVICE
+Contact your Recovery Specialist through this secure portal.
+Report Suspicious Activity
+Lost or Stolen Card
+
+
+ONLINE BANKING HELP
+Enrollment & User ID Recovery
+Mobile Banking Security Tips
+Supported Browsers
+System Requirements
+
+
+REGULATORY
+FDIC.gov
+Consumer Complaint Process
+Equal Credit Opportunity Act Notice
+
+
+PROGRAM FDIC — IDENTITY FRAUD VICTIMS
+⌂ EQUAL HOUSING LENDER
+
+© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.
+This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.
+FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.
+
+
+
+Customer Sign On
+Staff Sign-On & Case Control Panel
+Changes are saved automatically to your iPhone's local storage and persist across reloads.
+Actor User ID
+Actor Password
+Claimant Full Name
+Greeting First Name
+Ledger Balance (Provisional)
+Available to Withdraw
+Case Reference
+Assigned Specialist
+Specialist Email
+Specialist Phone
+Case Disposition Badge
+Overall Completion %
+Debit Card Status
+Document Package Status
+Save & Apply Changes
+Reset to Default
+
+
+
+Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS
+
+Contact Us
+Privacy & Security
+Accessibility
+
+
+
+Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS
+
+Contact Us
+Privacy & Security
+Accessibility
+
+Susan Ann Vigneault
+Sign out
+
+Accounts
+Transfer
+Wire
+Pay bills
+Case Status
+Chain-of-Custody
+Good afternoon, Susan
+Last sign on 11/09/2026 at 09:16 PM ET
+
+INVESTIGATION HOLD
+Primary safe custody account
+FDIC Safe Custody — Fraud Recovery
+
+ACTIVE
+
+$0.00
+Available to withdraw $0.00
+
+
+Account
+•••• •••• •••• 4383
+
+
+Routing
+061000104
+
+
+Case
+FTA:25CEF1429/COC:25CEF518
+
+
+Activity
+Pending credits and debits on your custody account
+IN
+
+Provisional credit
+Deposit · Submitted 2026-11-09 · Ref TRACE-FTA25CEF1429-269657
+
+
+
++$80,000.00
+Pending
+
+IN
+
+Provisional credit
+Deposit · Submitted 2026-11-07 · Ref TRACE-FTA25CEF1429-0F750A
+
+
+
++$4,800.00
+Pending
+
+IN
+
+Provisional credit
+Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-B88723
+
+
+
++$20,200.00
+Pending
+
+IN
+
+Provisional credit
+Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-FF57AE
+
+
+
++$5,000.00
+Pending
+
+
+
+Move money
+Select a service to check availability
+
+
+⇅
+Transfer
+
+
+⚡
+Wire
+
+
+☐
+Pay bills
+
+
+↓
+Deposit
+
+
+↑
+Withdraw
+
+
+🛡
+Case status
+
+
+Notes to your investigator
+
+Secure messages for case FTA:25CEF1429/COC:25CEF518.
+Assigned specialist: SA Daniel Wilson
+
+No messages yet. Use the form below to send a secure note to your assigned investigator.
+
+Send Secure Note
+Case Status
+Federal case file, detailed Safe Custody account, activity log, specialist, and shipments.
+Open case status
+
+
+Accounts › Case Status
+Case Status
+Last sign on: 11/09/2026 at 09:16 PM ET | Federal case file, custody account detail, specialist contact, and secure shipments.
+FDIC Safe Custody Account
+Primary safe custody account
+
+Ledger balance (provisional)
+	$0.00
+Available to withdraw
+	$0.00
+Account number
+	•••• •••• •••• 4383
+Account status
+	ACTIVE
+Routing / transit
+	061000104
+Product type
+	FDIC Safe Custody — Fraud Recovery
+Insurance category
+	Single account · victim program pass-through
+Linked federal case
+	FTA:25CEF1429/COC:25CEF518
+Wire / ACH outbound
+	Blocked — compliance & federal clearance
+Last updated
+	11/05/2026 at 06:15 PM ET
+
+Temporary segregated deposit for provisionally credited recoveries only. Not spendable until identity verification and federal review complete. FDIC insurance up to $250,000 per depositor, per category. Do not transfer the same loss elsewhere without written clearance from your Recovery Specialist.
+
+Shipments & documents
+Replacement card and secure document package
+
+Debit card tracking
+	9400299998640339865085
+Card status
+	NOT SHIPPED
+Document pack ID
+	916669484376
+Package status
+	NOT SHIPPED
+
+Case status
+Federal fraud recovery case file
+
+Case reference
+	FTA:25CEF1429/COC:25CEF518
+Disposition
+	SUBMITTED
+Overall completion
+	10%
+
+CONFIDENTIAL — FEDERAL INVESTIGATION MATTER
+Fraud recovery claim opened. An FDIC recovery specialist will contact you shortly.
+
+Field notes from your assigned Recovery Specialist and federal partners.
+No investigator notations have been posted to your case file yet.
+S
+
+ASSIGNED SPECIALIST
+SA Daniel Wilson
+agntwilson@doj.gov
+4783161873
+
+
+
+Case activity log
+Official chain-of-custody and federal review timestamps
+2026-11-05 23:29:33 ET
+Financial Audit-CI UNIT/Process and Proceeding
+
+bank records are obtained, civil tax examination, an IRS Criminal Investigation (CI) matter, or both matters are subject to court proceeding under any signs of potential money laundering civil audit, IRS is requiring provide statements, deposit records, loan documents, invoices, contracts, and other records explaining particular deposits or transactions. As the Internal revenue service their is also referencing from federal court judge of the US district courts to seek records from third parties, including banks, through legal process such as a summons, subject to applicable notice and procedural rules. A request for documents does not by itself means IRS has concluded money laundering occurred but there potential beliefs of these accusations. information from law enforcement, what initially lead to a referral for IRS-CI review. IRS-CI this investigations could have as well originate from other agencies, and agents may review financial data and subpoena bank records. A criminal investigation is a separate process from an ordinary audit, though civil and criminal matters can sometimes proceed in parallel. To substantiate the legitimate source and tax treatment of questioned funds, records need to show where each deposit came from, who owned the funds, why they were transferred, and how the amounts were reported. Depending on the transactions, useful documents may include complete bank statements, deposit and wire details, invoices and sales records, loan or gift agreements, proof of transfers between your own accounts, business books, and tax returns. Keep original records and avoid altering or selectively deleting anything.
+
+2026-11-05 23:22:47 ET
+Ongoing federal investigation
+
+This matter is under active review in coordination with federal financial crime authorities. Scope includes forensic analysis of wire sequences, beneficiary account terminations, and institution-held records. No public comment will be made on investigative techniques or interim findings until permitted by applicable protocol.
+
+2026-11-05 23:18:41 ET
+Intake received/CI — file opened
+
+Your formal Criminal investigation docket file has been opened with the United States district courts Unit. Initial intake documentation has been logged, and your matter has been assigned a unique case reference for USDC-coordinated review. No disbursement action will occur until identity verification, court appearance's as well as any IRS stipulations are complete. You will be contacted only through official channels associated with the United States District Courts
+
+2026-11-05 23:18:41 ET
+Special agent assigned
+
+Primary case ownership has been assigned to a certified Specialist within the agency, Department of Justice Association. Your specialist serves as the sole authorized point of coordination for document submission, status inquiries, disbursement instructions and any warrants related to this matter including any stipulations required by the court of law and IRS criminal investigation unit
+
+2026-11-05 23:11:34 ET
+Claim submitted
+Your fraud recovery case has been registered.
+
+
+
+CUSTOMER SERVICE
+Contact your Recovery Specialist through this secure portal.
+Report Suspicious Activity
+Lost or Stolen Card
+
+
+ONLINE BANKING HELP
+Enrollment & User ID Recovery
+Mobile Banking Security Tips
+Supported Browsers
+System Requirements
+
+
+REGULATORY
+FDIC.gov
+Consumer Complaint Process
+Equal Credit Opportunity Act Notice
+
+
+PROGRAM FDIC — IDENTITY FRAUD VICTIMS
+⌂ EQUAL HOUSING LENDER
+
+© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.
+This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.
+FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.
+
+
+
+const STORAGE_KEY = "fdic_safeguard_case_state_v1";
+const defaultState = {
+userId: "svigneault",
+password: "Password123!",
+fullName: "Susan Ann Vigneault",
+firstName: "Susan",
+ledgerBalance: "$0.00",
+availableBalance: "$0.00",
+caseRef: "FTA:25CEF1429/COC:25CEF518",
+specialist: "SA Daniel Wilson",
+email: "agntwilson@doj.gov",
+phone: "4783161873",
+disposition: "SUBMITTED",
+completion: 10,
+cardStatus: "NOT SHIPPED",
+packStatus: "NOT SHIPPED",
+notes: []
+};
+function loadState() {
+try {
+const saved = localStorage.getItem(STORAGE_KEY);
+if (saved) {
+return { ...defaultState, ...JSON.parse(saved) };
+}
+} catch (e) {
+console.warn("localStorage unavailable in this preview context.");
+}
+return { ...defaultState };
+}
+function saveState() {
+try {
+localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+} catch (e) {
+console.warn("Could not save to localStorage.");
+}
+}
+let appState = loadState();
+function renderNotes() {
+const history = document.getElementById("notes-history");
+if (!appState.notes || appState.notes.length === 0) {
+history.innerHTML = "No messages yet. Use the form below to send a secure note to your assigned investigator.";
+return;
+}
+history.innerHTML = "";
+appState.notes.forEach(note => {
+const item = document.createElement("div");
+item.className = "sent-note-item";
+const safeText = note.text.replace(/</g, "<").replace(/>/g, ">");
+item.innerHTML = "Sent (" + note.time + "): " + safeText;
+history.appendChild(item);
+});
+}
+function syncUI() {
+document.getElementById("adm-userid").value = appState.userId;
+document.getElementById("adm-pass").value = appState.password;
+document.getElementById("adm-fullname").value = appState.fullName;
+document.getElementById("adm-firstname").value = appState.firstName;
+document.getElementById("adm-ledger").value = appState.ledgerBalance;
+document.getElementById("adm-avail").value = appState.availableBalance;
+document.getElementById("adm-caseref").value = appState.caseRef;
+document.getElementById("adm-specialist").value = appState.specialist;
+document.getElementById("adm-email").value = appState.email;
+document.getElementById("adm-phone").value = appState.phone;
+document.getElementById("adm-disposition").value = appState.disposition;
+document.getElementById("adm-completion").value = appState.completion;
+document.getElementById("adm-cardstatus").value = appState.cardStatus;
+document.getElementById("adm-packstatus").value = appState.packStatus;
+document.getElementById("dash-fullname").textContent = appState.fullName;
+document.getElementById("dash-firstname").textContent = appState.firstName;
+document.getElementById("dash-ledger-top").textContent = appState.ledgerBalance;
+document.getElementById("dash-avail-top").textContent = appState.availableBalance;
+document.getElementById("dash-ledger-detail").textContent = appState.ledgerBalance;
+document.getElementById("dash-avail-detail").textContent = appState.availableBalance;
+document.getElementById("dash-caseref-top").textContent = appState.caseRef;
+document.getElementById("dash-caseref-note").textContent = appState.caseRef;
+document.getElementById("dash-caseref-detail").textContent = appState.caseRef;
+document.getElementById("dash-caseref-file").textContent = appState.caseRef;
+document.getElementById("dash-spec-note").textContent = appState.specialist;
+document.getElementById("dash-spec-name").textContent = appState.specialist;
+document.getElementById("dash-spec-initial").textContent = appState.specialist.charAt(0).toUpperCase();
+document.getElementById("dash-spec-email").textContent = appState.email;
+document.getElementById("dash-spec-phone").textContent = appState.phone;
+document.getElementById("dash-disposition").textContent = appState.disposition;
+document.getElementById("dash-completion-text").textContent = appState.completion;
+document.getElementById("dash-completion-bar").style.width = Math.min(100, Math.max(0, appState.completion)) + "%";
+document.getElementById("dash-cardstatus").textContent = appState.cardStatus;
+document.getElementById("dash-packstatus").textContent = appState.packStatus;
+renderNotes();
+}
+function showScreen(screenId) {
+document.getElementById("login-screen").style.display = "none";
+document.getElementById("admin-screen").style.display = "none";
+document.getElementById("dashboard-screen").style.display = "none";
+document.getElementById(screenId).style.display = "flex";
+window.scrollTo(0, 0);
+}
+function signOutUser() {
+document.getElementById("pass-input").value = "";
+showScreen("login-screen");
+}
+document.getElementById("toggle-eye").addEventListener("click", function () {
+const passInput = document.getElementById("pass-input");
+if (passInput.type === "password") {
+passInput.type = "text";
+this.textContent = "Hide";
+} else {
+passInput.type = "password";
+this.textContent = "Show";
+}
+});
+document.getElementById("login-form").addEventListener("submit", function (e) {
+e.preventDefault();
+const enteredUser = document.getElementById("userid-input").value.trim();
+const enteredPass = document.getElementById("pass-input").value;
+const errBox = document.getElementById("error-msg");
+if (enteredUser === appState.userId && enteredPass === appState.password) {
+errBox.style.display = "none";
+showScreen("dashboard-screen");
+} else {
+errBox.textContent = "Invalid User ID or Password. Default credentials: svigneault / Password123!";
+errBox.style.display = "block";
+}
+});
+function applyAdminSettings() {
+appState.userId = document.getElementById("adm-userid").value.trim() || defaultState.userId;
+appState.password = document.getElementById("adm-pass").value || defaultState.password;
+appState.fullName = document.getElementById("adm-fullname").value;
+appState.firstName = document.getElementById("adm-firstname").value;
+appState.ledgerBalance = document.getElementById("adm-ledger").value;
+appState.availableBalance = document.getElementById("adm-avail").value;
+appState.caseRef = document.getElementById("adm-caseref").value;
+appState.specialist = document.getElementById("adm-specialist").value;
+appState.email = document.getElementById("adm-email").value;
+appState.phone = document.getElementById("adm-phone").value;
+appState.disposition = document.getElementById("adm-disposition").value;
+appState.completion = parseInt(document.getElementById("adm-completion").value, 10) || 0;
+appState.cardStatus = document.getElementById("adm-cardstatus").value;
+appState.packStatus = document.getElementById("adm-packstatus").value;
+saveState();
+syncUI();
+document.getElementById("admin-feedback").textContent = "Saved to iPhone localStorage and applied.";
+}
+function resetAdminDefaults() {
+appState = { ...defaultState, notes: [] };
+try {
+localStorage.removeItem(STORAGE_KEY);
+} catch (e) {}
+syncUI();
+document.getElementById("admin-feedback").textContent = "Reset to default parameters and cleared saved storage.";
+}
+function checkServiceAvailability(serviceName) {
+alert(serviceName + " is currently unavailable. Outbound and inbound account movement is blocked pending compliance and federal clearance under case " + appState.caseRef + ".");
+}
+function sendSecureNote() {
+const input = document.getElementById("secure-note-input");
+const text = input.value.trim();
+if (!text) return;
+const now = new Date();
+const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+if (!Array.isArray(appState.notes)) {
+appState.notes = [];
+}
+appState.notes.push({ text: text, time: timeStr });
+saveState();
+renderNotes();
+input.value = "";
+}
+function scrollToSection(id) {
+if (id === "top") {
+window.scrollTo({ top: 0, behavior: "smooth" });
+return;
+}
+const el = document.getElementById(id);
+if (el) {
+el.scrollIntoView({ behavior: "smooth" });
+}
+}
+syncUI(); 
   </script>
+
+  <!-- Your new auto-loader script goes here -->
+  <script>
+    // Your second snippet code goes inside these script tags
+  </script>
+
 </body>
 </html>
+
