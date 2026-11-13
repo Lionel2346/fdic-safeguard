@@ -998,7 +998,7 @@
           <div class="card-box">
             <div class="card-header-row">
               <div>
-                <div class="card-title">Primary safe custody account</div>
+                <div class="card-title">Primary Penalty Recovery Account</div>
                 <div class="card-subtitle">FDIC Safe Custody —  Penalty Recovery</div>
               </div>
               <span class="hold-pill" style="background:#ecfdf3;color:#067647;border-color:#abefc6;">ACTIVE</span>
@@ -1226,150 +1226,122 @@
     </footer>
   </div>
 
-  <script>
-    Section 1:Core Profile & Balances
-1.Profile & Account Parameters
+  <!-- Admin Controls Section -->
+<div id="admin-panel">
+  <h3>1. Profile & Account Parameters</h3>
+  <input type="text" id="user-id" placeholder="Login User ID" />
+  <input type="text" id="defendant-name" placeholder="Defendant Full Name" />
 
-Login User ID
+  <h3>2. Status & Progress Controls</h3>
+  <input type="number" id="completion-percent" min="0" max="100" placeholder="Overall Completion % (0-100)" />
+  <input type="text" id="global-alert" placeholder="Global Status Alert Message" />
+  
+  <select id="restriction-flag">
+    <option value="Normal Access">Normal Access</option>
+    <option value="Temporary Review Hold">Temporary Review Hold</option>
+    Identity Check Required</option>
+  </select>
 
-Login Password
+  <h3>3. Case Updates & Activity Log</h3>
+  <input type="text" id="entry-title" placeholder="Entry Title" />
+  <input type="text" id="entry-desc" placeholder="Entry Description" />
+  <button type="button" onclick="addTimelineEntry()">+ Add Timeline Entry</button>
+  <button type="button" onclick="clearTimeline()">Clear Timeline</button>
 
-Defendant Full Name
+  <!-- Display area for timeline entries -->
+  <ul id="timeline-list"></ul>
 
-Greeting First Name
- Hello, Alex
-Last sign on 11/13/2026
+  <hr />
+  <button type="button" onclick="saveAndApplyChanges()">Save & Apply Changes</button>
+  <button type="button" onclick="resetToDefaults()">Reset to Defaults</button>
+  <button type="button" onclick="signOut()">Sign out</button>
+</div> <script>
+  // 1. Function to Sign Out
+  function signOut() {
+    // Clear any temporary session data stored in the browser
+    sessionStorage.clear();
+    localStorage.removeItem('userSessionToken');
 
-Section 2: Status & Progress Controls
+    // Notify the backend server to destroy the session (if applicable)
+    // fetch('/api/logout', { method: 'POST' });
 
-2. Status & Progress Controls
+    alert("You have been signed out.");
+    // Redirect to the login page
+    window.location.href = "/login.html"; 
+  }
 
+  // 2. Function to Add a Timeline Entry
+ function addTimelineEntry() {
+    const title = document.getElementById('entry-title').value;
+    const desc = document.getElementById('entry-desc').value;
 
-Case Disposition Badge
+    if (!title || !desc) {
+      alert("Please enter both a title and a description.");
+      return;
+    }
 
-Overall Completion% (0-100)
+    const list = document.getElementById('timeline-list');
+    const newItem = document.createElement('li');
+    const timestamp = new Date().toLocaleString();
+    
+    newItem.innerHTML = `<strong>${timestamp} - ${title}:</strong> ${desc}`;
+    list.appendChild(newItem);
 
-Debit Card Status
+    // Clear the input boxes after adding
+    document.getElementById('entry-title').value = '';
+    document.getElementById('entry-desc').value = '';
+  }
 
-Global Status Alert Message
+  // 3. Function to Clear the Timeline
+ <h3>3. Case Updates & Activity Log</h3>
 
-Account Restriction Flag
+<!-- New Date / Time input -->
+<input type="text" id="entry-datetime" placeholder="Event Date / Time (e.g., 11/13/2026 8:41 AM HST)" />
 
-Normal Access
-Temporary Review Hold
-Identity Check Required
+<input type="text" id="entry-title" placeholder="Entry Title" />
+<input type="text" id="entry-desc" placeholder="Entry Description" />
 
-Section 3: Updates & Activity Log Manager
+<button type="button" onclick="addTimelineEntry()">+ Add Timeline Entry</button>
+<button type="button" onclick="clearTimeline()">Clear Timeline</button>
 
-3.Case Updates & Activity Log
+<!-- Display area for timeline entries -->
+<ul id="timeline-list"></ul> function clearTimeline() {
+    if (confirm("Are you sure you want to clear all timeline entries?")) {
+      document.getElementById('timeline-list').innerHTML = '';
+    }
+  }
 
-Event Date / Time
+  // 4. Function to Save & Apply Changes
+  function saveAndApplyChanges() {
+    const dashboardData = {
+      userId: document.getElementById('user-id').value,
+      defendantName: document.getElementById('defendant-name').value,
+      completion: document.getElementById('completion-percent').value,
+      alertMessage: document.getElementById('global-alert').value,
+      restrictionFlag: document.getElementById('restriction-flag').value,
+      timelineHTML: document.getElementById('timeline-list').innerHTML
+    };
 
-Event Category
+    // Save locally for demonstration (In production, send this to your backend database using fetch())
+    localStorage.setItem('caseDashboardData', JSON.stringify(dashboardData));
+    alert("Changes saved and applied!");
+  }
 
-Live Admin Activity Entries displayed on the dashboard.
+  // 5. Function to Reset to Defaults
+  function resetToDefaults() {
+    if (confirm("Reset all fields to default values?")) {
+      localStorage.removeItem('caseDashboardData');
+      location.reload(); // Reloads the page to clear inputs
+    }
+  }
+ </script>
 
-Current Timeline Entries
-
-Entry Title
-
-Entry Description
-+ Add Timeline Entry
-Clear Timeline
-
-Save & Apply Changes
-Reset to Defaults
-Sign out
-
-ENVIRONMENT
-Contact Support
-Terms
-Accessibility
-
-REVIEW IN PROGRESS
-Penalty Recovery Account
-Managed Allocation — Tier 1
-
-ACTIVE
-
-$0.00
-Available balance $0.00
-
-
-Account
-•••• •••• •••• 4383
-
-
-Routing
-061000104
-
-
-Case Number
-FTA25CEF1429/COC25CEFS18
-
-Recent Transactions
-Pending account and ledger entries
-IN
-
-Initial Recovery Credit
-Pending Progress · Status Pending · 
-
-
-
-$0.00
-Pending Progress
-
-
-
-Quick Actions
-Select a module to check availability
-
-
-⇅
-Transfer
-
-
-🌐 
-Wire
-
-
-🧾
-Pay Bills
-
-
-📥
-Deposit
-
-
-📤
-Withdraw
-
-⚖️
-Case Status
-
-
-Direct Notes
-
-Messages for reference FTA25CEF1429/COC25CEFS18.
-Special Agent: Erin Okono
-
-No messages yet. Use the form below to send a note to your Case Manager .
-
-Send Message
-Case File
-Detailed account breakdown, Special Agent contact, and shipment tracking.
-View Full Details
+</body>
+</html>
 
 
 
-
-Overview › Case file Status
-& Account Details
-Last updated: 11/13/2026 | Comprehensive account, shipment, and case summary.
-Penalty Account Summary
-Primary managed allocation
-
-    <div id="login-screen">
+  <div id="login-screen">
     <div class="login-topbar">
       <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="" label="FDIC Safeguard">
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
