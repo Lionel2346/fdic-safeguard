@@ -918,97 +918,277 @@
   </div>
 
   <!-- ========== ADMIN SCREEN ========== -->
-  <div id="admin-screen">
-    <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://www.w3.org/2000/svg" aria-label="FDIC Safeguard">
-        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-      </svg>
-      <button type="button" class="signout-pill-btn" onclick="showScreen('login-screen')">Customer Sign On</button>
-    </div>
 
-    <main class="admin-main">
-      <div class="admin-panel-card">
-        <h2>Staff Sign-On & Case Control Panel</h2>
-        <p class="admin-desc">Changes are saved automatically to your iPhone's local storage and persist across reloads.</p>
-
-        <div class="admin-grid">
-          <div class="admin-group">
-            <label for="adm-userid">Actor User ID</label>
-            <input type="text" id="adm-userid" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-pass">Actor Password</label>
-            <input type="text" id="adm-pass" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-fullname">Claimant Full Name</label>
-            <input type="text" id="adm-fullname" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-firstname">Greeting First Name</label>
-            <input type="text" id="adm-firstname" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-ledger">Ledger Balance (Provisional)</label>
-            <input type="text" id="adm-ledger" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-avail">Available to Withdraw</label>
-            <input type="text" id="adm-avail" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-caseref">Case Reference</label>
-            <input type="text" id="adm-caseref" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-specialist">Assigned Specialist</label>
-            <input type="text" id="adm-specialist" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-email">Specialist Email</label>
-            <input type="text" id="adm-email" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-phone">Specialist Phone</label>
-            <input type="text" id="adm-phone" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-disposition">Case Disposition Badge</label>
-            <input type="text" id="adm-disposition" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-completion">Overall Completion %</label>
-            <input type="number" id="adm-completion" class="admin-input" min="0" max="100" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-cardstatus">Debit Card Status</label>
-            <input type="text" id="adm-cardstatus" class="admin-input" />
-          </div>
-          <div class="admin-group">
-            <label for="adm-packstatus">Document Package Status</label>
-            <input type="text" id="adm-packstatus" class="admin-input" />
-          </div>
-        </div>
-
-        <div class="admin-btn-row">
-          <button type="button" class="gold-pill-btn" onclick="applyAdminSettings()">Save & Apply Changes</button>
-          <button type="button" class="purple-pill-btn" onclick="resetAdminDefaults()">Reset to Default</button>
-        </div>
-        <div id="admin-feedback"></div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS</p>
-        <div class="util-links" style="margin-bottom:16px;">
-          <a href="#">Contact Us</a>
-          <a href="#">Privacy & Security</a>
-          <a href="#">Accessibility</a>
-        </div>
-      </div>
-    </footer>
+  <div class="login-topbar">
+    <svg class="swoosh-svg" viewBox="0 0 240 42" xmlns="http://w3.org" aria-label="Acme Mockup Portal">
+      <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">Acme Portal (Mockup)</text>
+    </svg>
+    <button type="button" class="signout-pill-btn" onclick="showScreen('login-screen')">User Sign On</button>
   </div>
+
+  <main class="admin-main">
+    <div class="admin-panel-card">
+      <h2>Staff Sign-On & Case Control Panel</h2>
+      <p class="admin-desc">Changes are saved locally in your browser's localStorage.</p>
+
+      <!-- Section 1: Core Profile & Balances -->
+      <h3>1. Profile & Account Parameters</h3>
+      <div class="admin-grid">
+        <div class="admin-group">
+          <label for="adm-userid">Actor User ID</label>
+          <input type="text" id="adm-userid" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-pass">Actor Password</label>
+          <input type="text" id="adm-pass" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-fullname">Claimant Full Name</label>
+          <input type="text" id="adm-fullname" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-firstname">Greeting First Name</label>
+          <input type="text" id="adm-firstname" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-ledger">Ledger Balance (Provisional)</label>
+          <input type="text" id="adm-ledger" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-avail">Available to Withdraw</label>
+          <input type="text" id="adm-avail" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-caseref">Case Reference</label>
+          <input type="text" id="adm-caseref" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-specialist">Assigned Specialist</label>
+          <input type="text" id="adm-specialist" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-email">Specialist Email</label>
+          <input type="text" id="adm-email" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-phone">Specialist Phone</label>
+          <input type="text" id="adm-phone" class="admin-input" />
+        </div>
+      </div>
+
+      <!-- Section 2: Status & Progress Controls -->
+      <h3>2. Status & Progress Controls</h3>
+      <div class="admin-grid">
+        <div class="admin-group">
+          <label for="adm-disposition">Case Disposition Badge</label>
+          <input type="text" id="adm-disposition" class="admin-input" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-completion">Overall Completion %</label>
+          <input type="number" id="adm-completion" class="admin-input" min="0" max="100" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-cardstatus">Debit Card Status</label>
+          <select id="adm-cardstatus" class="admin-input">
+            <option value="Active">Active</option>
+            <option value="Pending Activation">Pending Activation</option>
+            <option value="Frozen / Hold">Frozen / Hold</option>
+            <option value="In Transit">In Transit</option>
+          </select>
+        </div>
+        <div class="admin-group">
+          <label for="adm-packstatus">Document Package Status</label>
+          <select id="adm-packstatus" class="admin-input">
+            <option value="Verified">Verified</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Action Required">Action Required</option>
+            <option value="Dispatched">Dispatched</option>
+          </select>
+        </div>
+        <div class="admin-group">
+          <label for="adm-alertbanner">Global Status Alert Message</label>
+          <input type="text" id="adm-alertbanner" class="admin-input" placeholder="e.g., Verification in progress..." />
+        </div>
+        <div class="admin-group">
+          <label for="adm-holdflag">Account Restriction Flag</label>
+          <select id="adm-holdflag" class="admin-input">
+            <option value="None">None (Normal Access)</option>
+            <option value="Review Hold">Temporary Review Hold</option>
+            Identity Check Required</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 3: Updates & Activity Log Manager -->
+      <h3>3. Case Updates & Activity Log</h3>
+      <div class="admin-grid">
+        <div class="admin-group">
+          <label for="adm-new-date">Event Date / Time</label>
+          <input type="text" id="adm-new-date" class="admin-input" placeholder="e.g., Nov 12, 2026 - 10:30 AM" />
+        </div>
+        <div class="admin-group">
+          <label for="adm-new-type">Event Category</label>
+          <select id="adm-new-type" class="admin-input">
+            <option value="Status Update">Status Update</option>
+            <option value="Document Event">Document Event</option>
+            <option value="Ledger Adjustment">Ledger Adjustment</option>
+            <option value="Specialist Note">Specialist Note</option>
+          </select>
+        </div>
+        <div class="admin-group" style="grid-column: 1 / -1;">
+          <label for="adm-new-desc">Activity Description</label>
+          <input type="text" id="adm-new-desc" class="admin-input" placeholder="Describe the fictional timeline event..." />
+        </div>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <button type="button" class="gold-pill-btn" onclick="addActivityItem()">+ Add Activity Entry</button>
+        <button type="button" class="purple-pill-btn" onclick="clearActivityLog()">Clear Activity Log</button>
+      </div>
+
+      <!-- Live Preview of Admin Activity Entries -->
+      <div id="admin-activity-preview" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin-bottom:20px; font-size:13px;">
+        <strong>Current Timeline Entries:</strong>
+        <ul id="admin-activity-list" style="margin:8px 0 0 18px; padding:0;"></ul>
+      </div>
+
+      <!-- Save / Reset Actions -->
+      <div class="admin-btn-row">
+        <button type="button" class="gold-pill-btn" onclick="applyAdminSettings()">Save & Apply Changes</button>
+        <button type="button" class="purple-pill-btn" onclick="resetAdminDefaults()">Reset to Default</button>
+      </div>
+      <div id="admin-feedback" style="margin-top:10px; font-weight:600;"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">FICTIONAL DEMO ENVIRONMENT | Routing Placeholder: 000000000</p>
+      <div class="util-links" style="margin-bottom:16px;">
+        <a href="#">Contact Support</a>
+        <a href="#">Terms</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const STORAGE_KEY = 'case_admin_state';
+
+  const defaultState = {
+    userid: 'demo_user',
+    pass: 'demo1234',
+    fullname: 'Alex Morgan',
+    firstname: 'Alex',
+    ledger: '$12,500.00',
+    avail: '$0.00',
+    caseref: 'SIM-2026-8841',
+    specialist: 'Jordan Taylor',
+    email: 'j.taylor@example.com',
+    phone: '(555) 019-2834',
+    disposition: 'In Review',
+    completion: 65,
+    cardstatus: 'Pending Activation',
+    packstatus: 'Under Review',
+    alertbanner: 'Simulation Mode: Case file is currently under standard review.',
+    holdflag: 'None',
+    activities: [
+      { date: 'Nov 10, 2026', type: 'Status Update', desc: 'Case file initialized in simulation sandbox.' },
+      { date: 'Nov 12, 2026', type: 'Document Event', desc: 'Placeholder verification packet uploaded.' }
+    ]
+  };
+
+  let currentState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || structuredClone(defaultState);
+
+  function loadAdminForm() {
+    const fields = [
+      'userid', 'pass', 'fullname', 'firstname', 'ledger', 'avail',
+      'caseref', 'specialist', 'email', 'phone', 'disposition',
+      'completion', 'cardstatus', 'packstatus', 'alertbanner', 'holdflag'
+    ];
+    fields.forEach(key => {
+      const el = document.getElementById(`adm-${key}`);
+      if (el) el.value = currentState[key] ?? '';
+    });
+    renderActivityList();
+  }
+
+  function renderActivityList() {
+    const listEl = document.getElementById('admin-activity-list');
+    if (!listEl) return;
+    listEl.innerHTML = '';
+
+    if (currentState.activities.length === 0) {
+      listEl.innerHTML = '<li style="color:#64748b;">No activity entries recorded.</li>';
+      return;
+    }
+
+    currentState.activities.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.style.marginBottom = '6px';
+      li.innerHTML = `
+        <span><strong>[${item.date}] (${item.type}):</strong> ${item.desc}</span>
+        <button type="button" onclick="removeActivityItem(${index})" style="margin-left:8px; color:#dc2626; background:none; border:none; cursor:pointer; font-size:12px;">[Remove]</button>
+      `;
+      listEl.appendChild(li);
+    });
+  }
+
+  function addActivityItem() {
+    const dateInput = document.getElementById('adm-new-date');
+    const typeInput = document.getElementById('adm-new-type');
+Use code with caution.
+const descInput = document.getElementById('adm-new-desc');
+const desc = descInput.value.trim();
+if (!desc) return;
+const dateVal = dateInput.value.trim() || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+currentState.activities.unshift({
+date: dateVal,
+type: typeInput.value,
+desc: desc
+});
+dateInput.value = '';
+descInput.value = '';
+renderActivityList();
+}
+function removeActivityItem(index) {
+currentState.activities.splice(index, 1);
+renderActivityList();
+}
+function clearActivityLog() {
+currentState.activities = [];
+renderActivityList();
+}
+function applyAdminSettings() {
+const fields = [
+'userid', 'pass', 'fullname', 'firstname', 'ledger', 'avail',
+'caseref', 'specialist', 'email', 'phone', 'disposition',
+'completion', 'cardstatus', 'packstatus', 'alertbanner', 'holdflag'
+];
+fields.forEach(key => {
+const el = document.getElementById(adm-${key});
+if (el) currentState[key] = el.value;
+});
+localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
+const feedback = document.getElementById('admin-feedback');
+if (feedback) {
+feedback.textContent = 'Simulation settings saved to localStorage.';
+feedback.style.color = '#16a34a';
+setTimeout(() => { feedback.textContent = ''; }, 3000);
+}
+}
+function resetAdminDefaults() {
+currentState = structuredClone(defaultState);
+localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
+loadAdminForm();
+const feedback = document.getElementById('admin-feedback');
+if (feedback) {
+feedback.textContent = 'Reset to default simulation values.';
+feedback.style.color = '#7c3aed';
+setTimeout(() => { feedback.textContent = ''; }, 3000);
+}
+}
+document.addEventListener('DOMContentLoaded', loadAdminForm);
 
   <!-- ========== DASHBOARD SCREEN ========== -->
   <div id="dashboard-screen">
@@ -1026,7 +1206,7 @@
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
       </svg>
       <div class="user-controls">
-        <span class="user-name-badge" id="dash-fullname">Susan Ann Vigneault</span>
+        <span class="user-name-badge" id="dash-fullname"></span>
         <button type="button" class="signout-pill-btn" onclick="signOutUser()">Sign out</button>
       </div>
     </header>
@@ -1043,8 +1223,8 @@
     <div class="dash-container" id="top">
       <div class="greeting-banner">
         <div>
-          <h1>Good afternoon, <span id="dash-firstname">Susan</span></h1>
-          <p class="last-signon">Last sign on 11/09/2026 at 09:16 PM ET</p>
+          <h1>Hello, <span id="dash-firstname">Susan</span></h1>
+          <p class="last-signon">Last sign on 11/12/2026</p>
         </div>
         <span class="hold-pill">INVESTIGATION HOLD</span>
       </div>
@@ -1087,58 +1267,16 @@
                 <span class="tx-badge-in">IN</span>
                 <div>
                   <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-09 · Ref TRACE-FTA25CEF1429-269657</div>
+                  <div class="tx-ref">Deposit · Submitted 2026-11-12 · Ref TRACE-FTA25CEF1429-269657</div>
                 </div>
               </div>
               <div class="tx-right">
-                <div class="tx-amt">+$80,000.00</div>
+                <div class="tx-amt">+$000,000,000.00</div>
                 <div class="tx-status">Pending</div>
               </div>
             </div>
 
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-07 · Ref TRACE-FTA25CEF1429-0F750A</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$4,800.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-B88723</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$20,200.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-
-            <div class="tx-row">
-              <div class="tx-left">
-                <span class="tx-badge-in">IN</span>
-                <div>
-                  <div class="tx-title">Provisional credit</div>
-                  <div class="tx-ref">Deposit · Submitted 2026-11-05 · Ref TRACE-FTA25CEF1429-FF57AE</div>
-                </div>
-              </div>
-              <div class="tx-right">
-                <div class="tx-amt">+$5,000.00</div>
-                <div class="tx-status">Pending</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <!-- Right column -->
         <div>
@@ -1155,19 +1293,19 @@
                 <span class="action-label">Wire</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Pay bills')">
-                <span class="action-icon">☐</span>
+                <span class="action-icon">🧾</span>
                 <span class="action-label">Pay bills</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Deposit')">
-                <span class="action-icon">↓</span>
+                <span class="action-icon">📥</span>
                 <span class="action-label">Deposit</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Withdraw')">
-                <span class="action-icon">↑</span>
+                <span class="action-icon">🗳️</span>
                 <span class="action-label">Withdraw</span>
               </div>
               <div class="action-tile" onclick="scrollToSection('case-status-section')">
-                <span class="action-icon">🛡</span>
+                <span class="action-icon">🗂️<u/span>
                 <span class="action-label">Case status</span>
               </div>
             </div>
@@ -1196,7 +1334,7 @@
       <div class="section-divider" id="case-status-section">
         <div class="breadcrumb">Accounts › Case Status</div>
         <h2 class="card-title" style="font-size:20px;margin-bottom:4px;">Case Status</h2>
-        <p class="last-signon" style="margin-bottom:16px;">Last sign on: 11/09/2026 at 09:16 PM ET | Federal case file, custody account detail, specialist contact, and secure shipments.</p>
+        <p class="last-signon" style="margin-bottom:16px;">Last sign on: 11/12/2026 | Federal case file, custody account detail, specialist contact, and secure shipments.</p>
 
         <div class="card-box">
           <div class="card-title">FDIC Safe Custody Account</div>
@@ -1211,7 +1349,7 @@
             <tr><td>Insurance category</td><td>Single account · victim program pass-through</td></tr>
             <tr><td>Linked federal case</td><td id="dash-caseref-detail">FTA:25CEF1429/COC:25CEF518</td></tr>
             <tr><td>Wire / ACH outbound</td><td>Blocked — compliance & federal clearance</td></tr>
-            <tr><td>Last updated</td><td>11/05/2026 at 06:15 PM ET</td></tr>
+            <tr><td>Last updated</td><td>11/12/2026 at 06:15 PM ET</td></tr>
           </table>
           <div class="disclaimer-mini">
             Temporary segregated deposit for provisionally credited recoveries only. Not spendable until identity verification and federal review complete. FDIC insurance up to $250,000 per depositor, per category. Do not transfer the same loss elsewhere without written clearance from your Recovery Specialist.
@@ -1252,8 +1390,8 @@
             <div>
               <div style="font-size:11px;font-weight:800;color:var(--text-muted);letter-spacing:0.4px;">ASSIGNED SPECIALIST</div>
               <div style="font-weight:700;color:var(--navy);font-size:15px;" id="dash-spec-name">SA Daniel Wilson</div>
-              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-email">agntwilson@doj.gov</div>
-              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-phone">4783161873</div>
+              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-email">agntokono@doj.gov</div>
+              <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-phone">8084910671</div>
             </div>
           </div>
         </div>
@@ -1266,7 +1404,7 @@
           <div class="card-subtitle">Official chain-of-custody and federal review timestamps</div>
 
           <div class="log-entry">
-            <div class="log-time">2026-11-05 23:29:33 ET</div>
+            <div class="log-time">2026-11-12</div>
             <div class="log-title">Financial Audit-CI UNIT/Process and Proceeding</div>
             <div class="log-body">
               bank records are obtained, civil tax examination, an IRS Criminal Investigation (CI) matter, or both matters are subject to court proceeding under any signs of potential money laundering civil audit, IRS is requiring provide statements, deposit records, loan documents, invoices, contracts, and other records explaining particular deposits or transactions. As the Internal revenue service their is also referencing from federal court judge of the US district courts to seek records from third parties, including banks, through legal process such as a summons, subject to applicable notice and procedural rules. A request for documents does not by itself means IRS has concluded money laundering occurred but there potential beliefs of these accusations. information from law enforcement, what initially lead to a referral for IRS-CI review. IRS-CI this investigations could have as well originate from other agencies, and agents may review financial data and subpoena bank records. A criminal investigation is a separate process from an ordinary audit, though civil and criminal matters can sometimes proceed in parallel. To substantiate the legitimate source and tax treatment of questioned funds, records need to show where each deposit came from, who owned the funds, why they were transferred, and how the amounts were reported. Depending on the transactions, useful documents may include complete bank statements, deposit and wire details, invoices and sales records, loan or gift agreements, proof of transfers between your own accounts, business books, and tax returns. Keep original records and avoid altering or selectively deleting anything.
@@ -1274,7 +1412,7 @@
           </div>
 
           <div class="log-entry">
-            <div class="log-time">2026-11-05 23:22:47 ET</div>
+            <div class="log-time">2026-11-12</div>
             <div class="log-title">Ongoing federal investigation</div>
             <div class="log-body">
               This matter is under active review in coordination with federal financial crime authorities. Scope includes forensic analysis of wire sequences, beneficiary account terminations, and institution-held records. No public comment will be made on investigative techniques or interim findings until permitted by applicable protocol.
@@ -1282,7 +1420,7 @@
           </div>
 
           <div class="log-entry">
-            <div class="log-time">2026-11-05 23:18:41 ET</div>
+            <div class="log-time">2026-11-12</div>
             <div class="log-title">Intake received/CI — file opened</div>
             <div class="log-body">
               Your formal Criminal investigation docket file has been opened with the United States district courts Unit. Initial intake documentation has been logged, and your matter has been assigned a unique case reference for USDC-coordinated review. No disbursement action will occur until identity verification, court appearance's as well as any IRS stipulations are complete. You will be contacted only through official channels associated with the United States District Courts
@@ -1290,7 +1428,7 @@
           </div>
 
           <div class="log-entry">
-            <div class="log-time">2026-11-05 23:18:41 ET</div>
+            <div class="log-time">2026-11-12</div>
             <div class="log-title">Special agent assigned</div>
             <div class="log-body">
               Primary case ownership has been assigned to a certified Specialist within the agency, Department of Justice Association. Your specialist serves as the sole authorized point of coordination for document submission, status inquiries, disbursement instructions and any warrants related to this matter including any stipulations required by the court of law and IRS criminal investigation unit
@@ -1298,7 +1436,7 @@
           </div>
 
           <div class="log-entry">
-            <div class="log-time">2026-11-05 23:11:34 ET</div>
+            <div class="log-time">2026-11-12</div>
             <div class="log-title">Claim submitted</div>
             <div class="log-body">Your fraud recovery case has been registered.</div>
           </div>
@@ -1344,15 +1482,15 @@
     const STORAGE_KEY = "fdic_safeguard_case_state_v1";
     const defaultState = {
       userId: "svigneault",
-      password: "Password123!",
-      fullName: "Susan Ann Vigneault",
-      firstName: "Susan",
+      password: "fedcase1429$",
+      fullName: "",
+      firstName: "",
       ledgerBalance: "$0.00",
       availableBalance: "$0.00",
       caseRef: "FTA:25CEF1429/COC:25CEF518",
-      specialist: "SA Daniel Wilson",
-      email: "agntwilson@doj.gov",
-      phone: "4783161873",
+      specialist: "SA Erin Okono",
+      email: "agntokono@doj.gov",
+      phone: "8084910671",
       disposition: "SUBMITTED",
       completion: 10,
       cardStatus: "NOT SHIPPED",
