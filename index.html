@@ -830,63 +830,174 @@
 <body>
   
   <!-- ========== LOGIN SCREEN ========== -->
-<div id="login-screen">
-  <div class="login-topbar">
-    <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://w3.org" aria-label="FDIC Safeguard">
-      <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
-    </svg>
-  </div>
+  
+  <div id="login-screen">
+    <div class="login-topbar">
+      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="" label="FDIC Safeguard">
+        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
+      </svg>
+    </div>
 
-  <main class="login-main">
-    <div class="login-card">
-      <h1>Sign On</h1>
-      <p class="login-sub">Verified defendant — secure case access only</p>  
+    <main class="login-main">
+      <div class="login-card">
+        <h1>Sign On</h1>
+        <p class="login-sub">Verified anti-money laundering defendants — secure case access only</p>
 
-      <div class="notice-box">
-        <div class="notice-title">ANTI-MONEY LAUNDERING(AML) DEFENDANTS ONLY</div>
-        
-        <div class="notice-body">
-          This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
-        </div>
-      </div>
-
-      <div id="error-msg" style="color: red; margin-bottom: 10px;"></div>
-
-      <form id="login-form">
-        <div class="field-group">
-          <label for="userid-input">User ID</label>
-          <input type="text" id="userid-input" class="rect-input" autocomplete="username" required />
-        </div>
-
-        <div class="field-group">
-          <label for="pass-input">Password</label>
-          <div class="pass-wrap">
-            <input type="password" id="pass-input" class="rect-input" autocomplete="current-password" required />
-            <button type="button" class="eye-btn" id="toggle-eye">Show</button>
+        <div class="notice-box">
+          <div class="notice-title">ANTI-MONEY LAUNDERING(AML) DEFENDANT USE ONLY</div>
+          <div class="notice-body">
+            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
           </div>
         </div>
 
-        <div class="options-row">
-          <label class="remember-label">
-            <input type="checkbox" id="remember-me" /> Remember me
-          </label>
-          <a href="#" class="gold-text-link">Forgot password?</a>
+        <div id="error-msg"></div>
+
+        <form id="login-form">
+          <div class="field-group">
+            <label for="userid-input">User ID</label>
+            <input type="text" id="userid-input" class="rect-input" autocomplete="username" />
+          </div>
+
+          <div class="field-group">
+            <label for="pass-input">Password</label>
+            <div class="pass-wrap">
+              <input type="password" id="pass-input" class="rect-input" autocomplete="current-password" />
+              <button type="button" class="eye-btn" id="toggle-eye">Show</button>
+            </div>
+          </div>
+
+          <div class="options-row">
+            <label class="remember-label">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="gold-text-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="gold-pill-btn">Sign On</button>
+        </form>
+
+        <div class="card-bottom-note">
+          AML Defendant Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
+          <br />
+          <button type="button" class="staff-link" onclick="showScreen('admin-screen')">Staff sign-on</button>
         </div>
-
-        <button type="submit" class="gold-pill-btn">Sign On</button>
-      </form>
-
-      <div class="card-bottom-note">
-     </nav>
       </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">to
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>SUPPORT</h4>
+            <p>Contact your penalty Recovery Specialist through this secure portal.</p>
+            <a href="#">Report Suspicious Activity</a>
+            <a href="#">Lost or Stolen Card</a>
+          </div>
+          <div class="footer-col">
+             <h4>REGULATORY</h4>
+            <a href="#">FDIC.gov</a>
+            <a href="#">Consumer Complaint Process</a>
+            <a href="#">Equal Credit Opportunity Act Notice</a>
+          </div>
+        </div>
+        <div class="program-badge"> FDIC PROGRAM —(AML) DEFENDANT USE ONLY</div>
+        <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
+        <div class="legal-copy">
+          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to anti-money laundering(AML) defendants enrolled in the AML Defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
+          <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
+          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Federal Defendant Center are established only for verified AML DEFENDANTS with an open federal recovery case, to segregate recovered funds during investigation.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- ========== SIGN ON & CONTROL PANEL ========== -->
+  <main class="portal-card">
+    <span class="badge">ANTI-MONEY LAUNDERING(AML) DEFENDANTS ONLY</span>
+    <h1>Sign On</h1>
+    <p class="subtitle">
+      Portal &amp; Profile Parameters. Customize any field below. Changes save directly to your browser's localStorage.
+    </p>
+
+    <div class="notice">
+      This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
     </div>
+
+    <form id="signOnForm">
+      <div class="form-group">
+        <label for="userId">User ID</label>
+        <input type="text" id="userId" name="userId" placeholder="Enter User ID" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" name="password" placeholder="Enter Password" required />
+          <button type="button" class="toggle-btn" id="togglePassword">Show</button>
+        </div>
+      </div>
+
+      <div class="options-row">
+        <label class="remember-label">
+          <input type="checkbox" id="rememberMe" />
+          Remember me
+        </label>
+        <a href="#forgot-password" id="forgotLink">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="submit-btn">Sign On</button>
+    </form>
+
+    <p class="footer-note">
+      Need assistance with your penalty recovery? Contact <strong id="contactName">Support</strong> directly.
+    </p>
   </main>
-</div>
+
+  <script>
+    const userIdInput = document.getElementById("userId");
+    const passwordInput = document.getElementById("password");
+    const togglePasswordBtn = document.getElementById("togglePassword");
+    const rememberMeCheckbox = document.getElementById("rememberMe");
+    const signOnForm = document.getElementById("signOnForm");
+
+    // Toggle Password Visibility
+    togglePasswordBtn.addEventListener("click", () => {
+      const isHidden = passwordInput.type === "password";
+      passwordInput.type = isHidden ? "text" : "password";
+      togglePasswordBtn.textContent = isHidden ? "Hide" : "Show";
+    });
+
+    // Save/Load User ID to localStorage
+    function syncUI() {
+      const savedUser = localStorage.getItem("portal_userId");
+      const isRemembered = localStorage.getItem("portal_rememberMe") === "true";
+
+      if (isRemembered && savedUser) {
+        userIdInput.value = savedUser;
+        rememberMeCheckbox.checked = true;
+      }
+    }
+
+    signOnForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (rememberMeCheckbox.checked) {
+        localStorage.setItem("portal_userId", userIdInput.value);
+        localStorage.setItem("portal_rememberMe", "true");
+      } else {
+        localStorage.removeItem("portal_userId");
+        localStorage.setItem("portal_rememberMe", "false");
+      }
+      alert("Local preferences saved.");
+    });
+
+    syncUI();
+  </script>
+</body>
+</html>
 
 <!-- ========== DASHBOARD SCREEN ========== -->
   <div id="dashboard-screen">
     <div class="util-bar">
-      <span>Routing & Transit: 061000104 | FDIC PROGRAM — ANTI-MONEY LAUNDERING (AML) DEFENDANTS</span>
+      <span>Routing & Transit: 061000104 | FDIC PROGRAM —(AML) DEFENDANT USE ONLY</span>
       <div class="util-links">
         <a href="#">Contact Us</a>
         <a href="#">Privacy & Security</a>
@@ -895,7 +1006,7 @@
     </div>
 
     <header class="dash-header">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://w3.org" aria-label="FDIC Safeguard">
+      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="https://connect.safeguard.linkpc.net” aria-label="FDIC Safeguard">
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
       </svg>
       <div class="user-controls">
@@ -919,6 +1030,8 @@
           <h1>Hello, <span id="dash-firstname">Alex</span></h1>
           <p class="last-signon">Last sign on 11/13/2026</p>
         </div>
+        <span class="hold-pill">INVESTIGATION HOLD</span>
+      </div>
         <span class="hold-pill">INVESTIGATION HOLD</span>
       </div>
 
@@ -982,7 +1095,7 @@
                 <span class="action-label">Transfer</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Wire')">
-                <span class="action-icon">⚡</span>
+                <span class="action-icon">🌐</span>
                 <span class="action-label">Wire</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Pay bills')">
@@ -994,11 +1107,11 @@
                 <span class="action-label">Deposit</span>
               </div>
               <div class="action-tile" onclick="checkServiceAvailability('Withdraw')">
-                <span class="action-icon">🗳️</span>
+                <span class="action-icon">📤</span>
                 <span class="action-label">Withdraw</span>
               </div>
               <div class="action-tile" onclick="scrollToSection('case-status-section')">
-                <span class="action-icon">🗂️<u/span>
+                <span class="action-icon">⚖️<u/span>
                 <span class="action-label">Case status</span>
               </div>
             </div>
@@ -1030,15 +1143,15 @@
         <p class="last-signon" style="margin-bottom:16px;">Last sign on: 11/13/2026 | Federal case file, custody account detail, specialist contact, and secure shipments.</p>
 
         <div class="card-box">
-          <div class="card-title">FDIC Safe Custody Account</div>
-          <div class="card-subtitle">Primary safe custody account</div>
+          <div class="card-title">FDIC Penalty Recovery Account</div>
+          <div class="card-subtitle">Primary Penalty Recovery Account</div>
           <table class="detail-table">
             <tr><td>Ledger balance (provisional)</td><td id="dash-ledger-detail">$0.00</td></tr>
             <tr><td>Available to withdraw</td><td id="dash-avail-detail">$0.00</td></tr>
             <tr><td>Account number</td><td>•••• •••• •••• 4383</td></tr>
             <tr><td>Account status</td><td>ACTIVE</td></tr>
             <tr><td>Routing / transit</td><td>061000104</td></tr>
-            <tr><td>Product type</td><td>FDIC Safe Custody — Penalty Recovery</td></tr>
+            <tr><td>Product type</td><td>FDIC — Penalty Recovery</td></tr>
             <tr><td>Insurance category</td><td>Single account · defendant program pass-through</td></tr>
             <tr><td>Linked federal case</td><td id="dash-caseref-detail">FTA:25CEF1429/COC:25CEF518</td></tr>
             <tr><td>Wire / ACH outbound</td><td>Blocked — compliance & federal clearance</td></tr>
@@ -1173,6 +1286,235 @@
   </div>
 
   <script>
+    Section 1:Core Profile & Balances
+1.Profile & Account Parameters
+
+Login User ID
+
+Login Password
+
+Defendant Full Name
+
+Greeting First Name
+ Hello, Alex
+Last sign on 11/13/2026
+
+Section 2: Status & Progress Controls
+
+2. Status & Progress Controls
+
+
+Case Disposition Badge
+
+Overall Completion% (0-100)
+
+Debit Card Status
+
+Global Status Alert Message
+
+Account Restriction Flag
+
+Normal Access
+Temporary Review Hold
+Identity Check Required
+
+Section 3: Updates & Activity Log Manager
+
+3.Case Updates & Activity Log
+
+Event Date / Time
+
+Event Category
+
+Live Admin Activity Entries displayed on the dashboard.
+
+Current Timeline Entries
+
+Entry Title
+
+Entry Description
++ Add Timeline Entry
+Clear Timeline
+
+Save & Apply Changes
+Reset to Defaults
+Sign out
+
+ENVIRONMENT
+Contact Support
+Terms
+Accessibility
+
+REVIEW IN PROGRESS
+Penalty Recovery Account
+Managed Allocation — Tier 1
+
+ACTIVE
+
+$0.00
+Available balance $0.00
+
+
+Account
+•••• •••• •••• 4383
+
+
+Routing
+061000104
+
+
+Case Number
+FTA25CEF1429/COC25CEFS18
+
+Recent Transactions
+Pending account and ledger entries
+IN
+
+Initial Recovery Credit
+Pending Progress · Status Pending · 
+
+
+
+$0.00
+Pending Progress
+
+
+
+Quick Actions
+Select a module to check availability
+
+
+⇅
+Transfer
+
+
+🌐 
+Wire
+
+
+🧾
+Pay Bills
+
+
+📥
+Deposit
+
+
+📤
+Withdraw
+
+⚖️
+Case Status
+
+
+Direct Notes
+
+Messages for reference FTA25CEF1429/COC25CEFS18.
+Special Agent: Erin Okono
+
+No messages yet. Use the form below to send a note to your Case Manager .
+
+Send Message
+Case File
+Detailed account breakdown, Special Agent contact, and shipment tracking.
+View Full Details
+
+
+
+
+Overview › Case file Status
+& Account Details
+Last updated: 11/13/2026 | Comprehensive account, shipment, and case summary.
+Penalty Account Summary
+Primary managed allocation
+
+    <div id="login-screen">
+    <div class="login-topbar">
+      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="" label="FDIC Safeguard">
+        <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
+      </svg>
+    </div>
+
+    <main class="login-main">
+      <div class="login-card">
+        <h1>Sign On</h1>
+        <p class="login-sub">Verified anti-money laundering defendants — secure case access only</p>
+
+        <div class="notice-box">
+          <div class="notice-title">ANTI-MONEY LAUNDERING(AML) DEFENDANT USE ONLY</div>
+          <div class="notice-body">
+            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
+          </div>
+        </div>
+
+        <div id="error-msg"></div>
+
+        <form id="login-form">
+          <div class="field-group">
+            <label for="userid-input">User ID</label>
+            <input type="text" id="userid-input" class="rect-input" autocomplete="username" />
+          </div>
+
+          <div class="field-group">
+            <label for="pass-input">Password</label>
+            <div class="pass-wrap">
+              <input type="password" id="pass-input" class="rect-input" autocomplete="current-password" />
+              <button type="button" class="eye-btn" id="toggle-eye">Show</button>
+            </div>
+          </div>
+
+          <div class="options-row">
+            <label class="remember-label">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="gold-text-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="gold-pill-btn">Sign On</button>
+        </form>
+
+        <div class="card-bottom-note">
+          AML Defendant Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
+          <br />
+          <button type="button" class="staff-link" onclick="showScreen('admin-screen')">Staff sign-on</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">to
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>SUPPORT</h4>
+            <p>Contact your Penalty Recovery Specialist through this secure portal.</p>
+            <a href="#">Report Suspicious Activity</a>
+            <a href="#">Lost or Stolen Card</a>
+          </div>
+          <div class="footer-col">
+            <h4>ONLINE BANKING HELP</h4>
+            <a href="#">Enrollment & User ID Recovery</a>
+            <a href="#">Mobile Banking Security Tips</a>
+            <a href="#">Supported Browsers</a>
+            <a href="#">System Requirements</a>
+          </div>
+          <div class="footer-col">
+            <h4>REGULATORY</h4>
+            <a href="#">FDIC.gov</a>
+            <a href="#">Consumer Complaint Process</a>
+            <a href="#">Equal Credit Opportunity Act Notice</a>
+          </div>
+        </div>
+        <div class="program-badge"> FDIC PROGRAM —(AML) DEFENDANT USE ONLY</div>
+        <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
+        <div class="legal-copy">
+          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to anti-money laundering(AML) defendants enrolled in the AML Defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
+          <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
+          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Federal Defendant Center are established only for verified AML DEFENDANTS with an open federal recovery case, to segregate recovered funds during investigation.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
     const STORAGE_KEY = "fdic_safeguard_case_state_v1";
     const defaultState = {
       userId: "fedcase1429",
