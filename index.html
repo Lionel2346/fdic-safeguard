@@ -843,7 +843,7 @@
         <p class="login-sub">Verified fraud victims — secure case access only</p>
 
         <div class="notice-box">
-          <div class="notice-title">FRAUD VICTIMS ONLY</div>
+          <div class="notice-title">FRAUD DEFENDANTS ONLY</div>
           <div class="notice-body">
             This portal is not open to the public and does not offer self-enrollment. Access is limited to individuals with an active fraud recovery case who received sign-on credentials from an assigned Recovery Specialist.
           </div>
@@ -918,10 +918,15 @@
   </div>
 
   <!-- ========== ADMIN SCREEN ========== -->
+<div id="admin-screen">
+  <!-- Clear Banner -->
+  <div class="banner" style="background:#fef2f2; border-bottom:2px solid #dc2626; color:#991b1b; padding:12px; text-align:center; font-weight:700; font-size:13px;">
+     UI ONLY/ — FOR GOVERNMENT AGENCY AND FRAUD DEFENDANT USE ONLY.
+  </div>
 
   <div class="login-topbar">
-    <svg class="swoosh-svg" viewBox="0 0 240 42" xmlns="http://w3.org" aria-label="Acme Mockup Portal">
-      <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">Acme Portal (Mockup)</text>
+    <svg class="swoosh-svg" viewBox="0 0 240 42" xmlns="http://w3.org" aria-label="Civil Process Portal">
+      <text x="0" y="28" fill="#c9a227" font-size="18" font-weight="700" font-family="system-ui,sans-serif">Portal</text>
     </svg>
     <button type="button" class="signout-pill-btn" onclick="showScreen('login-screen')">User Sign On</button>
   </div>
@@ -1024,7 +1029,7 @@
       <div class="admin-grid">
         <div class="admin-group">
           <label for="adm-new-date">Event Date / Time</label>
-          <input type="text" id="adm-new-date" class="admin-input" placeholder="e.g., Nov 12, 2026 - 10:30 AM" />
+          <input type="text" id="adm-new-date" class="admin-input" placeholder="e.g., Nov 12, 2026/>
         </div>
         <div class="admin-group">
           <label for="adm-new-type">Event Category</label>
@@ -1037,7 +1042,7 @@
         </div>
         <div class="admin-group" style="grid-column: 1 / -1;">
           <label for="adm-new-desc">Activity Description</label>
-          <input type="text" id="adm-new-desc" class="admin-input" placeholder="Describe the fictional timeline event..." />
+          <input type="text" id="adm-new-desc" class="admin-input" placeholder="Describe the timeline event..." />
         </div>
       </div>
       <div style="margin-bottom: 16px;">
@@ -1062,7 +1067,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">FICTIONAL DEMO ENVIRONMENT | Routing Placeholder: 000000000</p>
+      <p style="font-size:12.5px;color:#94a3b8;margin-bottom:12px;">ENVIRONMENT | Routing Placeholder: 000000000</p>
       <div class="util-links" style="margin-bottom:16px;">
         <a href="#">Contact Support</a>
         <a href="#">Terms</a>
@@ -1083,17 +1088,17 @@
     ledger: '$000,000,000.00',
     avail: '$0.00',
     caseref: 'USDC-2026-8841',
-    specialist: 'Specoal Agent Erin Okono',
+    specialist: 'Special Agent Okono',
     email: 'agntokono.gov',
     phone: '(808) 491-0671',
     disposition: 'In Review',
-    completion: 65,
+    completion: 0,
     cardstatus: 'Pending Activation',
     packstatus: 'Under Review',
     alertbanner: 'Case file is currently under standard review.',
     holdflag: 'None',
     activities: [
-      { date: 'Nov 10, 2026', type: 'Status Update', desc: 'Case file initialized in simulation sandbox.' },
+      { date: 'Nov 12, 2026', type: 'Status Update', desc: 'Case file initialized.' },
       { date: 'Nov 12, 2026', type: 'Document Event', desc: 'Placeholder verification packet uploaded.' }
     ]
   };
@@ -1137,7 +1142,6 @@
   function addActivityItem() {
     const dateInput = document.getElementById('adm-new-date');
     const typeInput = document.getElementById('adm-new-type');
-Use code with caution.
 const descInput = document.getElementById('adm-new-desc');
 const desc = descInput.value.trim();
 if (!desc) return;
@@ -1172,7 +1176,7 @@ if (el) currentState[key] = el.value;
 localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
 const feedback = document.getElementById('admin-feedback');
 if (feedback) {
-feedback.textContent = 'Simulation settings saved to localStorage.';
+feedback.textContent = 'Settings saved to localStorage.';
 feedback.style.color = '#16a34a';
 setTimeout(() => { feedback.textContent = ''; }, 3000);
 }
@@ -1183,7 +1187,7 @@ localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
 loadAdminForm();
 const feedback = document.getElementById('admin-feedback');
 if (feedback) {
-feedback.textContent = 'Reset to default simulation values.';
+feedback.textContent = 'Reset to default values.';
 feedback.style.color = '#7c3aed';
 setTimeout(() => { feedback.textContent = ''; }, 3000);
 }
@@ -1193,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
   <!-- ========== DASHBOARD SCREEN ========== -->
   <div id="dashboard-screen">
     <div class="util-bar">
-      <span>Routing & Transit: 061000104 | PROGRAM FDIC — IDENTITY FRAUD VICTIMS</span>
+      <span>Routing & Transit: 061000104 | PROGRAM FDIC — FRAUD DEFENDANTS</span>
       <div class="util-links">
         <a href="#">Contact Us</a>
         <a href="#">Privacy & Security</a>
@@ -1369,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
 
         <div class="card-box">
           <div class="card-title">Case status</div>
-          <div class="card-subtitle">Federal fraud recovery case file</div>
+          <div class="card-subtitle">Federal fraud defendant case file</div>
           <table class="detail-table">
             <tr><td>Case reference</td><td id="dash-caseref-file">FTA:25CEF1429/COC:25CEF518</td></tr>
             <tr><td>Disposition</td><td id="dash-disposition">SUBMITTED</td></tr>
@@ -1467,10 +1471,10 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
             <a href="#">Equal Credit Opportunity Act Notice</a>
           </div>
         </div>
-        <div class="program-badge">PROGRAM FDIC — IDENTITY FRAUD VICTIMS</div>
+        <div class="program-badge">PROGRAM FDIC —FRAUD DEFENDANTS</div>
         <div class="ehl-row">⌂ EQUAL HOUSING LENDER</div>
         <div class="legal-copy">
-          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified identity-fraud victims enrolled in the Fraud Victim Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
+          <p>© FDIC Safeguard. All rights reserved. FDIC deposit insurance at Safe Guard Bank applies only to verified AML(Anti Money Launder)-Fraud victims enrolled in the Fraud defendant Assistance Program with an active recovery case—not to the general public or standard retail accounts. Where applicable, coverage follows FDIC rules up to $250,000 per depositor, per insured institution, for each ownership category.</p>
           <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
           <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified identity-fraud victims with an open federal recovery case, to segregate recovered funds during investigation.</p>
         </div>
@@ -1608,7 +1612,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
         errBox.style.display = "none";
         showScreen("dashboard-screen");
       } else {
-        errBox.textContent = "Invalid User ID or Password. Default credentials: svigneault / Password123!";
+        errBox.textContent = "Invalid User ID or Password. Default credentials: User ID 'svigneault / fedcase1429";
         errBox.style.display = "block";
       }
     });
