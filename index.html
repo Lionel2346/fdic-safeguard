@@ -956,7 +956,7 @@
 <!-- ========== DASHBOARD SCREEN ========== -->
   <div id="dashboard-screen">
     <div class="util-bar">
-      <span>Routing & Transit: 061000104 | FDIC PROGRAM —(AML) DEFENDANT USE ONLY</span>
+      <span> FDIC PROGRAM —ANTI-MONEY LAUNDERING(AML) DEFENDANT USE ONLY</span>
       <div class="util-links">
         <a href="#">Contact Us</a>
         <a href="#">Privacy & Security</a>
@@ -989,9 +989,7 @@
           <h1>Hello, <span id="dash-firstname">Alex</span></h1>
           <p class="last-signon">Last sign on 11/13/2026</p>
         </div>
-        <span class="hold-pill">INVESTIGATION HOLD</span>
-      </div>
-        <span class="hold-pill">INVESTIGATION HOLD</span>
+          <span class="hold-pill">INVESTIGATION HOLD</span>
       </div>
 
       <div class="dash-grid">
@@ -1043,58 +1041,42 @@
 
         
 
-        <!-- Right column -->
-        <div>
-          <div class="card-box">
-            <div class="card-title">Move money</div>
-            <div class="card-subtitle">Select a service to check availability</div>
-            <div class="quick-actions-grid">
-              <div class="action-tile" onclick="checkServiceAvailability('Transfer')">
-                <span class="action-icon">⇅</span>
-                <span class="action-label">Transfer</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Wire')">
-                <span class="action-icon">🌐</span>
-                <span class="action-label">Wire</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Pay bills')">
-                <span class="action-icon">🧾</span>
-                <span class="action-label">Pay bills</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Deposit')">
-                <span class="action-icon">📥</span>
-                <span class="action-label">Deposit</span>
-              </div>
-              <div class="action-tile" onclick="checkServiceAvailability('Withdraw')">
-                <span class="action-icon">📤</span>
-                <span class="action-label">Withdraw</span>
-              </div>
-              <div class="action-tile" onclick="scrollToSection('case-status-section')">
-                <span class="action-icon">⚖️<u/span>
-                <span class="action-label">Case status</span>
-              </div>
+      <!-- Right column --> <div class="card-box"> <!-- Added onclick and cursor styling to Title and Subtitle --> 
+        <div class="card-title" style="cursor: pointer;"onclick="showActionMessage('Move money')">Move money</div> 
+        <div class="card-subtitle"style="cursor: pointer;" onclick="showActionMessage('Select a service')">Select a service to check availability</div> 
+        <!-- Message display box (hidden until an item is clicked) --> <divid="action-status-message" style="display: none; margin: 12px 0; padding: 10px 12px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px; font-size: 13px; font-weight: 600;"></div>
+            <div class="quick-actions-grid"> 
+             <divclass="action-tile" onclick="showActionMessage('Transfer')">
+              <span class="action-icon">⇅</span> <span class="action-label">Transfer</span>
             </div>
-          </div>
-
-          <div class="card-box">
-            <div class="card-title">Notes to your penalty recovery manager</div>
-            <div class="card-subtitle">
-              Secure messages for case <span id="dash-caseref-note">FTA:25CEF1429/COC:25CEF518</span>.
-              Assigned specialist: <span id="dash-spec-note">Special Agent Okono</span>
+            <div class="action-tile"onclick="showActionMessage('Wire')"> 
+              <span class="action-icon">🌐</span> 
+              <span class="action-label">Wire</span> 
             </div>
-            <div id="notes-history">No messages yet. Use the form below to send a secure note to your assigned investigator.</div>
-            <textarea id="secure-note-input" class="note-textarea" placeholder="Type your secure note…"></textarea>
-            <button type="button" class="gold-pill-btn" onclick="sendSecureNote()">Send Secure Note</button>
+            <div class="action-tile" onclick="showActionMessage('Pay bills')"> 
+              <span class="action-icon">🧾</span> 
+              <span class="action-label">Pay bills</span>
+            </div> 
+            <divclass="action-tile" onclick="showActionMessage('Deposit')">
+              <span class="action-icon">📥</span>
+              <span class="action-label">Deposit</span>
+              </div>
+          <div class="action-tile"onclick="showActionMessage('Withdraw')"> 
+            <span class="action-icon">📤</span> 
+            <spanclass="action-label">Withdraw</span> 
           </div>
-
-          <div class="card-box">
-            <div class="card-title">Case Status</div>
-            <div class="card-subtitle">Federal case file, detailed Penalty Recovery Account, activity log, specialist, and shipments.</div>
-            <button type="button" class="purple-pill-btn" style="width:100%;" onclick="scrollToSection('case-status-section')">Open case status</button>
+          <div class="action-tile"onclick="scrollToSection('case-status-section')">
+            <span class="action-icon">⚖️</span> 
+            <spanclass="action-label">Case status</span>
           </div>
-        </div>
+        </div> 
       </div>
-
+     <script>
+      function showActionMessage(action) { const messages = { 'Move money': 'BLOCKED UNTIL PENALTY RECOVERY DEBIT CARD IS ACTIVATED', 'Select a service': 'ONCE THE PENALTY RECOVERY AMOUNT IS POSTED NOTIFY YOUR ACCOUNT RECOVERY SPECIALIST FOR THIS OPTION.', 'Transfer': 'ALL TRANSFERS WILL BE AVAILABLE ONCE THE PENALTY HAS BEEN POSTED.', 'Wire': 'NO WIRES IN PROGRESS', 'Pay bills': 'BLOCKED WHILE UNDERGOING A FEDERAL PENALTY PROCESS', 'Deposit': 'INSUFFICIENT BALANCE NO DEPOSITS MADE', 'Withdraw': 'INSUFFICIENT BALANCE' }; const messageBox = document.getElementById('action-status-message'); if (messages[action]) { messageBox.textContent = messages[action]; messageBox.style.display = 'block'; } } function scrollToSection(sectionId) { const target = document.getElementById(sectionId); if (target) { target.scrollIntoView({ behavior: 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'smooth' }); } } 
+     </body>
+    </script>
+      
       <!-- Case Status Detail -->
       <div class="section-divider" id="case-status-section">
         <div class="breadcrumb">Accounts › Case Status</div>
