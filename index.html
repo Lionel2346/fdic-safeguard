@@ -1486,8 +1486,8 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
   <script>
     const STORAGE_KEY = "fdic_safeguard_case_state_v1";
     const defaultState = {
-      userId: "svigneault",
-      password: "fedcase1429$",
+      userId: "fedcase1429",
+      password: "defendant00",
       fullName: "",
       firstName: "",
       ledgerBalance: "$0.00",
@@ -1613,7 +1613,7 @@ document.addEventListener('DOMContentLoaded', loadAdminForm);
         errBox.style.display = "none";
         showScreen("dashboard-screen");
       } else {
-        errBox.textContent = "Invalid User ID or Password. Default credentials: User ID 'svigneault / fedcase1429";
+        errBox.textContent = "Invalid User ID or Password. Default credentials: User ID "fedcase1429" Password "defendant00";
         errBox.style.display = "block";
       }
     });
