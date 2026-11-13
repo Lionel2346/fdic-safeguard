@@ -997,15 +997,15 @@
 </script>
     </header>
 
-    <nav class="dash-nav">
+    <fuction class="dash-action">
       <button type="button" class="nav-tab active" onclick="scrollToSection('top')">Accounts</button>
       <button type="button" class="nav-tab" onclick="checkServiceAvailability('Transfer')">Transfer</button>
       <button type="button" class="nav-tab" onclick="checkServiceAvailability('Wire')">Wire</button>
       <button type="button" class="nav-tab" onclick="checkServiceAvailability('Pay bills')">Pay bills</button>
       <button type="button" class="nav-tab" onclick="scrollToSection('case-status-section')">Case Status</button>
       <button type="button" class="nav-tab" onclick="scrollToSection('activity-log-section')">Chain-of-Custody</button>
-    </nav>  <script>
-      function showActionMessage(action) { const messages = { 'Move money': 'BLOCKED UNTIL PENALTY RECOVERY DEBIT CARD IS ACTIVATED', 'Select a service': 'ONCE THE PENALTY RECOVERY AMOUNT IS POSTED NOTIFY YOUR ACCOUNT RECOVERY SPECIALIST FOR THIS OPTION.', 'Transfer': 'ALL TRANSFERS WILL BE AVAILABLE ONCE THE PENALTY HAS BEEN POSTED.', 'Wire': 'NO WIRES IN PROGRESS', 'Pay bills': 'BLOCKED WHILE UNDERGOING A FEDERAL PENALTY PROCESS', 'Deposit': 'INSUFFICIENT BALANCE NO DEPOSITS MADE', 'Withdraw': 'INSUFFICIENT BALANCE' }; const messageBox = document.getElementById('action-status-message'); if (messages[action]) { messageBox.textContent = messages[action]; messageBox.style.display = 'block'; } } function scrollToSection(sectionId) { const target = document.getElementById(sectionId); if (target) { target.scrollIntoView({ behavior: 
+     <script>
+       function showActionMessage(action) { const messages = { 'Move money': 'BLOCKED UNTIL PENALTY RECOVERY DEBIT CARD IS ACTIVATED', 'Select a service': 'ONCE THE PENALTY RECOVERY AMOUNT IS POSTED NOTIFY YOUR ACCOUNT RECOVERY SPECIALIST FOR THIS OPTION.', 'Transfer': 'ALL TRANSFERS WILL BE AVAILABLE ONCE THE PENALTY HAS BEEN POSTED.', 'Wire': 'NO WIRES IN PROGRESS', 'Pay bills': 'BLOCKED WHILE UNDERGOING A FEDERAL PENALTY PROCESS', 'Deposit': 'INSUFFICIENT BALANCE NO DEPOSITS MADE', 'Withdraw': 'INSUFFICIENT BALANCE' }; const messageBox = document.getElementById('action-status-message'); if (messages[action]) { messageBox.textContent = messages[action]; messageBox.style.display = 'block'; } } function scrollToSection(sectionId) { const target = document.getElementById(sectionId); if (target) { target.scrollIntoView({ behavior: 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                'smooth' }); } } 
     </body>
     </script>
@@ -1095,9 +1095,6 @@
           <div class="action-tile"onclick="scrollToSection('case-status-section')">
             <span class="action-icon">⚖️</span> 
             <spanclass="action-label">Case status</span>
-          </div>
-        </div> 
-      </div>
      <script>
       function showActionMessage(action) { const messages = { 'Move money': 'BLOCKED UNTIL PENALTY RECOVERY DEBIT CARD IS ACTIVATED', 'Select a service': 'ONCE THE PENALTY RECOVERY AMOUNT IS POSTED NOTIFY YOUR ACCOUNT RECOVERY SPECIALIST FOR THIS OPTION.', 'Transfer': 'ALL TRANSFERS WILL BE AVAILABLE ONCE THE PENALTY HAS BEEN POSTED.', 'Wire': 'NO WIRES IN PROGRESS', 'Pay bills': 'BLOCKED WHILE UNDERGOING A FEDERAL PENALTY PROCESS', 'Deposit': 'INSUFFICIENT BALANCE NO DEPOSITS MADE', 'Withdraw': 'INSUFFICIENT BALANCE' }; 
       const messageBox = document.getElementById('action-status-message'); if (messages[action]) { messageBox.textContent = messages[action]; messageBox.style.display = 'block'; } } function scrollToSection(sectionId) { const target = document.getElementById(sectionId); if (target) {  'smooth' }); } }
@@ -1248,6 +1245,119 @@
           <p>This website is for authorized customers only. Unauthorized access, use, or monitoring of this system is prohibited and may be subject to criminal and civil penalties under federal law, including the Computer Fraud and Abuse Act (18 U.S.C. § 1030). Activity may be logged and reviewed. By signing in, you agree to our Online Banking Agreement, Electronic Communications Consent, and Privacy Policy.</p>
           <p>FDIC Safeguard does not offer general retail banking on this portal. Temporary FDIC Safe Custody Accounts in the Fraud Recovery Center are established only for verified anti-money laundering(AML) defendants with an open federal penalty recovery case, to segregate recovered funds during investigation.</p>
         </div>
-      </div>
-    </footer>
-  </div> const STORAGE_KEY = "fdic_safeguard_case_state_v1"; const defaultState = { userId: "fedcase1429", password: "defendant00", fullName: "", firstName: "", ledgerBalance: "$0.00", availableBalance: "$0.00", caseRef: "FTA:25CEF1429/COC:25CEF518", specialist: "Special Agent Okono", email: "agntokono@doj.gov", phone: "(808)491-0671", disposition: "SUBMITTED", completion: 0, cardStatus: "NOT SHIPPED", packStatus: "NOT SHIPPED", notes: [] }; function loadState() { try { const saved = localStorage.getItem(STORAGE_KEY); if (saved) { return { ...defaultState, ...JSON.parse(saved) }; } } catch (e) { console.warn("localStorage unavailable in this context."); } return { ...defaultState }; } function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); } catch (e) { console.warn("Could not save to localStorage."); } } let appState = loadState(); function renderNotes() { const history = document.getElementById("notes-history"); if (!appState.notes || appState.notes.length === 0) { history.innerHTML = "No messages yet. Use the form below to send a secure note to your assigned recovery specialist."; return; } history.innerHTML = ""; appState.notes.forEach(note => { const item = document.createElement("div"); item.className = "sent-note-item"; const safeText = note.text.replace(//g, ">"); item.innerHTML = "Sent (" + note.time + "): " + safeText; history.appendChild(item); }); } function syncUI() { document.getElementById("adm-userid").value = appState.userId; document.getElementById("adm-pass").value = appState.password; document.getElementById("adm-fullname").value = appState.fullName; document.getElementById("adm-firstname").value = appState.firstName; document.getElementById("adm-ledger").value = appState.ledgerBalance; document.getElementById("adm-avail").value = appState.availableBalance; document.getElementById("adm-caseref").value = appState.caseRef; document.getElementById("adm-specialist").value = appState.specialist; document.getElementById("adm-email").value = appState.email; document.getElementById("adm-phone").value = appState.phone; document.getElementById("adm-disposition").value = appState.disposition; document.getElementById("adm-completion").value = appState.completion; document.getElementById("adm-cardstatus").value = appState.cardStatus; document.getElementById("adm-packstatus").value = appState.packStatus; document.getElementById("dash-fullname").textContent = appState.fullName; document.getElementById("dash-firstname").textContent = appState.firstName; document.getElementById("dash-ledger-top").textContent = appState.ledgerBalance; document.getElementById("dash-avail-top").textContent = appState.availableBalance; document.getElementById("dash-ledger-detail").textContent = appState.ledgerBalance; document.getElementById("dash-avail-detail").textContent = appState.availableBalance; document.getElementById("dash-caseref-top").textContent = appState.caseRef; document.getElementById("dash-caseref-note").textContent = appState.caseRef; document.getElementById("dash-caseref-detail").textContent = appState.caseRef; document.getElementById("dash-caseref-file").textContent = appState.caseRef; document.getElementById("dash-spec-note").textContent = appState.specialist; document.getElementById("dash-spec-name").textContent = appState.specialist; document.getElementById("dash-spec-initial").textContent = appState.specialist.charAt(0).toUpperCase(); document.getElementById("dash-spec-email").textContent = appState.email; document.getElementById("dash-spec-phone").textContent = appState.phone; document.getElementById("dash-disposition").textContent = appState.disposition; document.getElementById("dash-completion-text").textContent = appState.completion; document.getElementById("dash-completion-bar").style.width = Math.min(100, Math.max(0, appState.completion)) + "%"; document.getElementById("dash-cardstatus").textContent = appState.cardStatus; document.getElementById("dash-packstatus").textContent = appState.packStatus; renderNotes(); } function showScreen(screenId) { document.getElementById("login-screen").style.display = "none"; document.getElementById("admin-screen").style.display = "none"; document.getElementById("dashboard-screen").style.display = "none"; document.getElementById(screenId).style.display = "flex"; window.scrollTo(0, 0); } function signOutUser() { document.getElementById("pass-input").value = ""; showScreen("login-screen"); } document.getElementById("toggle-eye").addEventListener("click", function () { const passInput = document.getElementById("pass-input"); if (passInput.type === "password") { passInput.type = "text"; this.textContent = "Hide"; } else { passInput.type = "password"; this.textContent = "Show"; } }); document.getElementById("login-form").addEventListener("submit", function (e) { e.preventDefault(); const enteredUser = document.getElementById("userid-input").value.trim(); const enteredPass = document.getElementById("pass-input").value; const errBox = document.getElementById("error-msg"); if (enteredUser === appState.userId && enteredPass === appState.password) { errBox.style.display = "none"; showScreen("dashboard-screen"); } else { errBox.textContent = "Invalid User ID or Password. Default credentials: User ID "fedcase1429" Password "defendant045"; errBox.style.display = "block"; } }); function applyAdminSettings() { appState.userId = document.getElementById("adm-userid").value.trim() || defaultState.userId; appState.password = document.getElementById("adm-pass").value || defaultState.password; appState.fullName = document.getElementById("adm-fullname").value; appState.firstName = document.getElementById("adm-firstname").value; appState.ledgerBalance = document.getElementById("adm-ledger").value; appState.availableBalance = document.getElementById("adm-avail").value; appState.caseRef = document.getElementById("adm-caseref").value; appState.specialist = document.getElementById("adm-specialist").value; appState.email = document.getElementById("adm-email").value; appState.phone = document.getElementById("adm-phone").value; appState.disposition = document.getElementById("adm-disposition").value; appState.completion = parseInt(document.getElementById("adm-completion").value, 10) || 0; appState.cardStatus = document.getElementById("adm-cardstatus").value; appState.packStatus = document.getElementById("adm-packstatus").value; saveState(); syncUI(); document.getElementById("admin-feedback").textContent = "Saved to localStorage and applied."; } function resetAdminDefaults() { appState = { ...defaultState, notes: [] }; try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} syncUI(); document.getElementById("admin-feedback").textContent = "Reset to default parameters and cleared saved storage."; } function checkServiceAvailability(serviceName) { alert(serviceName + " is currently unavailable. Outbound and inbound account movement is blocked pending compliance and federal clearance under case " + appState.caseRef + "."); } function sendSecureNote() { const input = document.getElementById("secure-note-input"); const text = input.value.trim(); if (!text) return; const now = new Date(); const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); if (!Array.isArray(appState.notes)) { appState.notes = []; } appState.notes.push({ text: text, time: timeStr }); saveState(); renderNotes(); input.value = ""; } function scrollToSection(id) { if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return; } const el = document.getElementById(id); if (el) { el.scrollIntoView({ behavior: "smooth" }); } } syncUI();
+         <script>
+    onst STORAGE_KEY = 'case_admin_state';
+
+  const defaultState = {
+    userid: 'fedcase1429',
+    pass: 'defendant00',
+    fullname: 'Alex Morgan',
+    firstname: 'Alex',
+    ledger: '$000,000,000.00',
+    avail: '$0.00',
+    caseref: 'TRACE-FTA25CEF1429-26957’,
+specialist: 'Special Agent Okono',
+    email: 'agntokono@doj.gov',
+    phone: '(808) 491-0671',
+    disposition: 'In Review',
+    completion: 0,
+    cardstatus: 'Pending Activation',
+    packstatus: 'Under Review',
+    alertbanner: 'Case file is currently under standard review.',
+    holdflag: 'None',
+    activities: [
+      { date: 'Nov 12, 2026', type: 'Status Update', desc: 'Case file initialized.' },
+      { date: 'Nov 12, 2026', type: 'Document Event', desc: 'Placeholder verification packet uploaded.' }
+    ]
+  };
+
+  let currentState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || structuredClone(defaultState);
+
+  function loadAdminForm() {
+    const fields = [
+      'userid', 'pass', 'fullname', 'firstname', 'ledger', 'avail',
+      'caseref', 'specialist', 'email', 'phone', 'disposition',
+      'completion', 'cardstatus', 'packstatus', 'alertbanner', 'holdflag'
+    ];
+    fields.forEach(key => {
+      const el = document.getElementById(`adm-${key}`);
+      if (el) el.value = currentState[key] ?? '';
+    });
+    renderActivityList();
+  }
+
+  function renderActivityList() {
+    const listEl = document.getElementById('admin-activity-list');
+    if (!listEl) return;
+    listEl.innerHTML = '';
+
+    if (currentState.activities.length === 0) {
+      listEl.innerHTML = '<li style="color:#64748b;">No activity entries recorded.</li>';
+      return;
+    }
+
+    currentState.activities.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.style.marginBottom = '6px';
+      li.innerHTML = `
+        <span><strong>[${item.date}] (${item.type}):</strong> ${item.desc}</span>
+        <button type="button" onclick="removeActivityItem(${index})" style="margin-left:8px; color:#dc2626; background:none; border:none; cursor:pointer; font-size:12px;">[Remove]</button>
+      `;
+      listEl.appendChild(li);
+    });
+  }
+
+  function addActivityItem() {
+    const dateInput = document.getElementById('adm-new-date');
+    const typeInput = document.getElementById('adm-new-type');
+const descInput = document.getElementById('adm-new-desc');
+const desc = descInput.value.trim();
+if (!desc) return;
+const dateVal = dateInput.value.trim() || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+currentState.activities.unshift({
+date: dateVal,
+type: typeInput.value,
+desc: desc
+});
+dateInput.value = '';
+descInput.value = '';
+renderActivityList();
+}
+function removeActivityItem(index) {
+currentState.activities.splice(index, 1);
+renderActivityList();
+}
+function clearActivityLog() {
+currentState.activities = [];
+renderActivityList();
+}
+function applyAdminSettings() {
+const fields = [
+'userid', 'pass', 'fullname', 'firstname', 'ledger', 'avail',
+'caseref', 'specialist', 'email', 'phone', 'disposition',
+'completion', 'cardstatus', 'packstatus', 'alertbanner', 'holdflag'
+];
+fields.forEach(key => {
+const el = document.getElementById(adm-${key});
+if (el) currentState[key] = el.value;
+});
+localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
+const feedback = document.getElementById('admin-feedback');
+if (feedback) {
+feedback.textContent = 'Settings saved to localStorage.';
+feedback.style.color = '#16a34a';
+setTimeout(() => { feedback.textContent = ''; }, 3000);
+}
+}
+function resetAdminDefaults() {
+currentState = structuredClone(defaultState);
+localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
+loadAdminForm();
+const feedback = document.getElementById('admin-feedback');
+if (feedback) {
+feedback.textContent = 'Reset to default values.';
+feedback.style.color = '#7c3aed';
+setTimeout(() => { feedback.textContent = ''; }, 3000);
+}
+}
+document.addEventListener('DOMContentLoaded', loadAdminForm);
